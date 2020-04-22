@@ -56,7 +56,7 @@ public class Game {
             }
             
             // Get the player's selection for input
-            input = in.nextLine():
+            input = in.nextLine();
             
             // If the player chooses option 1
             if(input.equals("1")) {
@@ -64,7 +64,7 @@ public class Game {
               
               // Add toast experience to total cooking experience
               cookingExperiencePts += toastExpEarned;
-              System.out.println("Your cooking experience has increased to " + cookingExperiencePts + "\n";
+              System.out.println("Your cooking experience has increased to " + cookingExperiencePts + "\n");
               activityCooking = 0;
             }
             // If the player chooses option 2
@@ -73,7 +73,7 @@ public class Game {
               
               // Add cereal experience to total cooking experience
               cookingExperiencePts += cerealExpEarned;
-              System.out.println("Your cooking experience has increased to " + cookingExperiencePts + "\n";
+              System.out.println("Your cooking experience has increased to " + cookingExperiencePts + "\n");
               activityCooking = 0;
             }
             // If the player chooses option 3
@@ -82,7 +82,7 @@ public class Game {
               
               // Add fruit experience to total cooking experience
               cookingExperiencePts += fruitExpEarned;
-              System.out.println("Your cooking experience has increased to " + cookingExperiencePts + "\n";
+              System.out.println("Your cooking experience has increased to " + cookingExperiencePts + "\n");
               activityCooking = 0;
             }
             // If the player enters an option not on the list
@@ -162,7 +162,7 @@ public class Game {
       }
     } // End Game
     
-    System.out.println("\nGREAT JOB TODAY!!!\nSEE YOU NEXT TIME!!!");
+    System.out.println("\nGREAT JOB TODAY!!!\nSEE YOU NEXT TIME!!!");}
                                  
   } // End main method
   

@@ -55,7 +55,7 @@ public class Game {
               System.out.println((i + 1) + ". " + cooking[i]);
             }
             
-            // Get the players selection for input
+            // Get the player's selection for input
             input = in.nextLine():
             
             // If the player chooses option 1

@@ -22,7 +22,7 @@ public class Game {
     int cookingExperiencePts = 0;
     int playerCookingExpLevel = 1;
     int exerciseExperiencePts = 0;
-    int playerExercise = 1;
+    int playerExerciseExpLevel = 1;
     
     boolean running = true;
     int continuePlaying = 1;
@@ -159,10 +159,12 @@ public class Game {
         }
         else {
           System.out.println("\nInvalid Input");
-      }
-    } // End Game
+        }
+      } // Player chooses to end the game
     
-    System.out.println("\nGREAT JOB TODAY!!!\nSEE YOU NEXT TIME!!!");}
+    System.out.println("\nGREAT JOB TODAY!!!\nSEE YOU NEXT TIME!!!");
+      
+   } // The game stops running
                                  
   } // End main method
   

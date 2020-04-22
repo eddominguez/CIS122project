@@ -37,8 +37,29 @@ public class Game {
         // Check to make sure player has enough AP to complete actions
         if (playerActionPts < 1) {
           continuePlaying = 0;
-          System.out.println("You need more AP to do another action!");
-          break;
+          System.out.println("You need more AP to do another action!\nWould you like to rest?\n");
+          
+          // Get the player's selection for input
+          String input = in.nextLine();
+          
+          // If the player chooses to rest
+          if(input.equals("1")) {
+            
+            // Increase the player's AP by 10
+            playerActionPts += 10;
+            System.out.println("You feel rested and ready to do more activities\n");
+            System.out.println("Your AP has increased to " + playerActionPts + "\n");
+          }
+          else if(input.equals("2")) {
+            System.out.println("\nGREAT JOB TODAY!!!\nSEE YOU NEXT TIME!!!");
+            continuePlaying = 0;
+            running = false;
+            break;
+          }
+          else {
+            System.out.println("\nInvalid Input");
+            playerActionPts = 0;
+          }
         }
         
         //Game starts by prompting the player to choose an action

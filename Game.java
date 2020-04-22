@@ -43,6 +43,7 @@ public class Game {
         
         // If the player chooses "cooking"
         if(input.equals("1")) {
+          activityCooking = 1;
           
           while (activityCooking > 0) {
             
@@ -94,6 +95,7 @@ public class Game {
         
         // If the player chooses "exercise"
         if(input.equals("2")) {
+          activityExercise = 1;
           
           while (activityExercise > 0) {
             

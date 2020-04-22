@@ -158,7 +158,7 @@ public class Game {
           running = false;
         }
         else {
-          System.out.println("\nIvalid Input");
+          System.out.println("\nInvalid Input");
       }
     } // End Game
     

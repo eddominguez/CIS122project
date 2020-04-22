@@ -19,6 +19,7 @@ public class Game {
     int jumpingjacksExpEarned =7;
     
     // Player Variables
+    int playerActionPts = 50;
     int cookingExperiencePts = 0;
     int playerCookingExpLevel = 1;
     int exerciseExperiencePts = 0;
@@ -33,10 +34,18 @@ public class Game {
       // Loop to allow player to continue to play the game or quit
       while (continuePlaying > 0) {
         
+        // Check to make sure player has enough AP to complete actions
+        if (playerActionPts < 1) {
+          continuePlaying = 0;
+          System.out.println("You need more AP to do another action!");
+          break;
+        }
+        
         //Game starts by prompting the player to choose an action
         System.out.println("Choose an activity or task to do: ");
         System.out.println("1. Cooking");
         System.out.println("2. Exercise");
+        System.out.println("3. Take a rest");
         
         // Get the player's selection for input
         String input = in.nextLine();
@@ -62,6 +71,10 @@ public class Game {
             if(input.equals("1")) {
               System.out.println("\nYou decide to cook toast\n");
               
+              // Subtract AP from the player
+              playerActionPts -= 10;
+              System.out.println("Your AP has decreased to " + playerActionPts + "\n");
+              
               // Add toast experience to total cooking experience
               cookingExperiencePts += toastExpEarned;
               System.out.println("Your cooking experience has increased to " + cookingExperiencePts + "\n");
@@ -71,6 +84,10 @@ public class Game {
             else if(input.equals("2")) {
               System.out.println("\nYou decide to cook cereal\n");
               
+              // Subtract AP from the player
+              playerActionPts -= 10;
+              System.out.println("Your AP has decreased to " + playerActionPts + "\n");
+              
               // Add cereal experience to total cooking experience
               cookingExperiencePts += cerealExpEarned;
               System.out.println("Your cooking experience has increased to " + cookingExperiencePts + "\n");
@@ -79,6 +96,10 @@ public class Game {
             // If the player chooses option 3
             else if(input.equals("3")) {
               System.out.println("\nYou decide to cook fruit\n");
+              
+              // Subtract AP from the player
+              playerActionPts -= 10;
+              System.out.println("Your AP has decreased to " + playerActionPts + "\n");
               
               // Add fruit experience to total cooking experience
               cookingExperiencePts += fruitExpEarned;
@@ -113,6 +134,10 @@ public class Game {
             if(input.equals("1")) {
               System.out.println("\nYou decide to do push-ups\n");
               
+              // Subtract AP from the player
+              playerActionPts -= 10;
+              System.out.println("Your AP has decreased to " + playerActionPts + "\n");
+              
               // Add push-ups experience earned to total exercise experience
               exerciseExperiencePts += pushupsExpEarned;
               System.out.println("Your exercise experience has increased to " + exerciseExperiencePts + "\n");
@@ -121,6 +146,10 @@ public class Game {
             else if(input.equals("2")) {
               System.out.println("\nYou decide to go running\n");
               
+              // Subtract AP from the player
+              playerActionPts -= 10;
+              System.out.println("Your AP has decreased to " + playerActionPts + "\n");
+              
               // Add running experience earned to total exercise experience
               exerciseExperiencePts += runningExpEarned;
               System.out.println("Your exercise experience has increased to " + exerciseExperiencePts + "\n");
@@ -128,6 +157,10 @@ public class Game {
             }
             else if(input.equals("3")) {
               System.out.println("\nYou decide to do jumping jacks\n");
+              
+              // Subtract AP from the player
+              playerActionPts -= 10;
+              System.out.println("Your AP has decreased to " + playerActionPts + "\n");
               
               // Add jumping jacks experience earned to total exercise experience
               exerciseExperiencePts += jumpingjacksExpEarned;
@@ -140,6 +173,25 @@ public class Game {
             }
           } // Loop ends when player is done exercising
         } // End exercise
+        
+        // If the player chooses to take a rest
+        else if(input.equals("3")) {
+          
+          // Increase the player's AP by 10
+          playerActionPts += 10;
+          System.out.println("You feel rested and ready to do more activities\n");
+          System.out.println("Your AP has increased to " + playerActionPts + "\n");
+        }
+        
+        // If the player chooses an option not on the list
+        else {
+          System.out.println("\nInvalid Input\n");
+          
+          /* INCOMPLETE ELSE STATEMENT:
+          This needs to loop back up to the start of the game
+          if there is an invalid entry. It currently just
+          continues to the next statement*/
+        }
         
         // Prompt the player to see if they want to continue
         System.out.println("Would you like to do another activity or task?\n");
@@ -154,6 +206,7 @@ public class Game {
           System.out.println();
         }
         else if(input.equals("2")) {
+          System.out.println("\nGREAT JOB TODAY!!!\nSEE YOU NEXT TIME!!!");
           continuePlaying = 0;
           running = false;
         }
@@ -161,8 +214,8 @@ public class Game {
           System.out.println("\nInvalid Input");
         }
       } // Player chooses to end the game
-    
-    System.out.println("\nGREAT JOB TODAY!!!\nSEE YOU NEXT TIME!!!");
+      
+      running = false;
       
    } // The game stops running
                                  

@@ -94,7 +94,7 @@ public class Game {
         } // End cooking
         
         // If the player chooses "exercise"
-        if(input.equals("2")) {
+        else if(input.equals("2")) {
           activityExercise = 1;
           
           while (activityExercise > 0) {

@@ -30,7 +30,7 @@ public class Game {
     // Loop to keep game running
     while (running) {
       
-      // Loop to allow player to play or quit
+      // Loop to allow player to continue to play the game or quit
       while (continuePlaying > 0) {
         
         //Game starts by prompting the player to choose an action
@@ -140,8 +140,30 @@ public class Game {
             }
           } // Loop ends when player is done exercising
         } // End exercise
+        
+        // Prompt the player to see if they want to continue
+        System.out.println("Would you like to another activity or task?\n");
+        System.out.println("1. Yes!");
+        System.out.println("2. I think I'm done for now.");
+                                 
+        // Get the player's selection for input
+        input = in.nextLine();
+                                 
+        if(input.equals("1")) {
+          continuePlaying = 1;
+          System.out.println();
+        }
+        else if(input.equals("2")) {
+          continuePlaying = 0;
+          running = false;
+        }
+        else {
+          System.out.println("\nIvalid Input");
       }
     } // End Game
+    
+    System.out.println("\nGREAT JOB TODAY!!!\nSEE YOU NEXT TIME!!!");
+                                 
   } // End main method
   
   // method for leveling up skills

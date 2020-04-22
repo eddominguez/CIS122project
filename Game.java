@@ -142,7 +142,7 @@ public class Game {
         } // End exercise
         
         // Prompt the player to see if they want to continue
-        System.out.println("Would you like to another activity or task?\n");
+        System.out.println("Would you like to do another activity or task?\n");
         System.out.println("1. Yes!");
         System.out.println("2. I think I'm done for now.");
                                  

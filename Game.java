@@ -7,7 +7,7 @@ public class Game {
     
     // Action Variables
     int activityCooking = 1;
-    String[] cooking = {"Toast", "Cereal, "Fruit"};
+    String[] cooking = {"Toast", "Cereal", "Fruit"};
     int toastExpEarned = 10;
     int cerealExpEarned = 8;
     int fruitExpEarned = 5;
@@ -114,7 +114,7 @@ public class Game {
               System.out.println("\nYou decide to do push-ups\n");
               
               // Add push-ups experience earned to total exercise experience
-              exerciseExperiencePts += pushupsEarned;
+              exerciseExperiencePts += pushupsExpEarned;
               System.out.println("Your exercise experience has increased to " + exerciseExperiencePts + "\n");
               activityExercise = 0;
             }

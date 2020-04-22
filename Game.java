@@ -34,7 +34,7 @@ public class Game {
       while (continuePlaying > 0) {
         
         //Game starts by prompting the player to choose an action
-        System.out.println("Choose an activity/task to do: ");
+        System.out.println("Choose an activity or task to do: ");
         System.out.println("1. Cooking");
         System.out.println("2. Exercise");
         

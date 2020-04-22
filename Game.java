@@ -126,7 +126,7 @@ public class Game {
               System.out.println("Your exercise experience has increased to " + exerciseExperiencePts + "\n");
               activityExercise = 0;
             }
-            else if(input.equals("2")) {
+            else if(input.equals("3")) {
               System.out.println("\nYou decide to do jumping jacks\n");
               
               // Add jumping jacks experience earned to total exercise experience

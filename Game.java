@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class GameWithMethodsUpdated {
+public class Game {
 	
 	// Scanner for user input
 	static Scanner in = new Scanner(System.in);
@@ -120,6 +120,10 @@ public class GameWithMethodsUpdated {
 	public static void executeAction () {
 		
 		System.out.println("\n!!!!!! Method executeAction is running !!!!!!\n");
+		
+		// Decrease the player's AP by 10
+		playerActionPts -= 10;
+		System.out.println("Your AP has decreased to " + playerActionPts + "\n");
 
 	} // End method executeAction
 	

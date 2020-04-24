@@ -150,7 +150,20 @@ public class Game {
 	} // End expLevelUp method
 	
 	// Method for tracking points
-	public static void pointTracker () {
+}
+public static void pointTracker () {
+	public static int points = 0;
+  	public static int level = 1;
+  
+   	 public static int increasePoints(){
+     		points = points + 1;
+   }
+
+   	 public static int increasePoints(int p){
+     		points = points + p;
+   }
+   	 public static int increaseLevel(){
+     		level = (points/50) + 1;
 		
 	}
   

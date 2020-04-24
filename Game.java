@@ -1,145 +1,171 @@
 import java.util.*;
 
 public class Game {
-  public static void main(String[] args) {
-    
-    Scanner in = new Scanner(System.in);
-    
-    // Player Variables
-    int playerActionPts = 50;
-    
-    // Game Variables
-    boolean running = true;
-    int continuePlaying = 1;
-    
-    // Loop to keep game running
-    while (running) {
-      
-      // Loop to allow player to continue to play the game or quit
-      while (continuePlaying > 0) {
-        
-        // Check to make sure player has enough AP to complete actions
-        if (playerActionPts < 1) {
-          continuePlaying = 0;
-          System.out.println("You need more AP to do another action!\nWould you like to rest?\n");
-          
-          // Get the player's selection for input
-          String input = in.nextLine();
-          
-          // If the player chooses to rest
-          if(input.equals("1")) {
-            
-            // Increase the player's AP by 10
-            playerActionPts += 10;
-            System.out.println("You feel rested and ready to do more activities\n");
-            System.out.println("Your AP has increased to " + playerActionPts + "\n");
-          }
-          else if(input.equals("2")) {
-            System.out.println("\nGREAT JOB TODAY!!!\nSEE YOU NEXT TIME!!!");
-            continuePlaying = 0;
-            running = false;
-            break;
-          }
-          else {
-            System.out.println("\nInvalid Input");
-            playerActionPts = 0;
-          }
-        }
-        
-        //Game starts by prompting the player to choose an action
-        System.out.println("Choose an activity or task to do: ");
-        System.out.println("1. Cooking");
-        System.out.println("2. Exercise");
-        System.out.println("3. Take a rest");
-        
-        // Get the player's selection for input
-        String input = in.nextLine();
-        
-        // If the player chooses "cooking"
-        if(input.equals("1")) {
-          doCookingAction();
-        } // End cooking
-        
-        // If the player chooses "exercise"
-        else if(input.equals("2")) {
-          doExerciseAction();
-        } // End exercise
-        
-        // If the player chooses to take a rest
-        else if(input.equals("3")) {
-          
-          // Increase the player's AP by 10
-          playerActionPts += 10;
-          System.out.println("You feel rested and ready to do more activities\n");
-          System.out.println("Your AP has increased to " + playerActionPts + "\n");
-        }
-        
-        // If the player chooses an option not on the list
-        else {
-          System.out.println("\nInvalid Input\n");
-          
-          /* INCOMPLETE ELSE STATEMENT:
-          This needs to loop back up to the start of the game
-          if there is an invalid entry. It currently just
-          continues to the next statement*/
-        }
-        
-        // Prompt the player to see if they want to continue
-        System.out.println("Would you like to do another activity or task?\n");
-        System.out.println("1. Yes!");
-        System.out.println("2. I think I'm done for now.");
-                                 
-        // Get the player's selection for input
-        input = in.nextLine();
-                                 
-        if(input.equals("1")) {
-          continuePlaying = 1;
-          System.out.println();
-        }
-        else if(input.equals("2")) {
-          System.out.println("\nGREAT JOB TODAY!!!\nSEE YOU NEXT TIME!!!");
-          continuePlaying = 0;
-          running = false;
-        }
-        else {
-          System.out.println("\nInvalid Input");
-        }
-      } // Player chooses to end the game
-      
-      running = false;
-      
-   } // The game stops running
-                                 
-  } // End main method
+	
+	// Scanner for user input
+	static Scanner in = new Scanner(System.in);
+	
+	// Player Variables
+	static int playerActionPts = 50;
+	
+	// Game Variables
+	static boolean running = true;
+	static int continuePlaying = 1;
+	
+	public static void main(String[] args) {
+		
+		// Welcome message
+		System.out.println("HOW ARE YOU TODAY? ARE YOU READY TO PLAY?\n");
+		
+		START:
+
+		// Loop to keep game running
+		while (running) {
+			
+			// Loop to allow player to continue to play the game or quit
+			while (continuePlaying > 0) {
+				
+				// Check to make sure player has enough AP to complete actions
+				if (playerActionPts < 1) {
+					System.out.println("You need more AP to do another action!\nWould you like to rest?\n");
+					System.out.println("1. Yes.");
+					System.out.println("2. No, I think I'm done for now.");
+					
+					// Get the player's selection for input
+					int input = in.nextInt();
+					
+					// If the player chooses to rest
+					if(input == 1) {
+						takeARest();
+					}
+					// If the player chooses quit
+					else if(input == 2) {
+						System.out.println("\nGREAT JOB TODAY!!!\nSEE YOU NEXT TIME!!!");
+						continuePlaying = 0;
+						running = false;
+						break;
+					}
+					// If the player chooses an option that is not on the list
+					else {
+						System.out.println("\n### Invalid Input! ###\n");
+						continue START;
+					}
+				}
+				// If the player has enough AP, they can start doing actions
+				else {	
+					//Game prompts the player to choose an action
+					System.out.println("Choose an activity or task to do: ");
+					
+					// List of actions for the player to choose from
+					// If adding actions to the list, resting and quitting should always be in the final two slots
+					String[] actionOptions = {"1. Cooking", "2. Exercise", "3. Cleaning", "4. Entertainment", "5. Rest", "6. I think I'm done for now"};
+					
+					// Print out the actionOptions string
+					for (String action : actionOptions) {
+						System.out.println(action);
+					}
+					
+					// Get the player's selection for input
+					int actionInput = in.nextInt();
+					
+					// If the player chooses anything but resting or quitting
+					if (actionInput < actionOptions.length - 1) {
+						executeAction();
+					}
+					// If the player chooses to rest
+					else if (actionInput < actionOptions.length) {
+						takeARest();
+					}
+					// If the player chooses to quit
+					else if (actionInput == actionOptions.length) {
+						System.out.println("\nGREAT JOB TODAY!!!\nSEE YOU NEXT TIME!!!");
+						continuePlaying = 0;
+						running = false;
+						break;
+					}
+					else {
+						System.out.println("\n### Invalid Input! ###\n");
+						continue START;
+					}
+					
+					// Prompt the player to see if they want to continue
+					System.out.println("Would you like to do another activity or task?\n");
+					System.out.println("1. Yes!");
+					System.out.println("2. I think I'm done for now.");
+
+					// Get the player's selection for input
+					actionInput = in.nextInt();
+					
+					if(actionInput == 1) {
+						continuePlaying = 1;
+						System.out.println();
+					}
+					else if(actionInput == 2) {
+						System.out.println("\nGREAT JOB TODAY!!!\nSEE YOU NEXT TIME!!!");
+						continuePlaying = 0;
+						running = false;
+					}
+					else {
+						System.out.println("\n### Invalid Input! ###\n");
+					}
+				}
+				
+				continue START;
+				
+			} // End continue playing loop
+		} // The game stops running
+	} // End main method
+	
+	// Method for executing an action
+	public static void executeAction () {
+		
+		System.out.println("\n!!!!!! Method executeAction is running !!!!!!\n");
+		
+		// Decrease the player's AP by 10
+		playerActionPts -= 10;
+		System.out.println("Your AP has decreased to " + playerActionPts + "\n");
+
+	} // End method executeAction
+	
+	// Method for taking a rest
+	public static void takeARest() {
+		
+		// Increase the player's AP by 10
+		playerActionPts += 10;
+		System.out.println("\nYou feel rested and ready to do more activities\n");
+		System.out.println("Your AP has increased to " + playerActionPts + "\n");
+				
+	} // End method takeARest
   
-  // method for leveling up skills
-  public static int expLevelUp (int expLevel) {
-    int levelUp = 0;
-    if(expLevel == 50) {
-      levelUp++;
-      return levelUp;
-    }
-    else {
-      return 0;
-    }
-  } // End expLevelUp method
+	// Method for leveling up skills
+	public static int expLevelUp (int expLevel) {
+		int levelUp = 0;
+		if(expLevel == 50) {
+			levelUp++;
+			return levelUp;
+		}
+		else {
+			return 0;
+		}	
+	} // End expLevelUp method
+	
+	// Method for tracking points
+	public static void pointTracker () {
+		
+	}
   
   	// Method for doing the cooking action
 	public static void doCookingAction () {
-		Scanner in = new Scanner(System.in);
 		
 		int activityCooking = 1;
 		
 		// Player Variables
-		int playerActionPts = 50;
 		int cookingExperiencePts = 0;
 		int playerCookingExpLevel = 2;
 		
 		// Level 1 cooking actions/skills
 		String[] cookingLevel1 = {"Toast", "Cereal", "Fruit"};
-		int toastExpEarned = 10;
-		int cerealExpEarned = 8;
-		int fruitExpEarned = 5;
+		int[] cookingLevel1ExpEarned = {10, 8, 5};
 		
 		// Level 2 cooking actions/skills
 		String[] cookingLevel2 = {"Sandwich", "Grilled Cheese", "Salad"};
@@ -159,6 +185,20 @@ public class Game {
 		int meatloafExpEarned = 36;
 		int beefvegetablestewExpEarned = 32;
 		
+		while (activityCooking > 0) {
+			
+			if(playerCookingExpLevel == 1) {
+				// Prompt the player to choose what to cook
+				System.out.println("\nChoose something to cook: ");
+				
+				// Loop to list out the cookingLevel1 array
+				for(int i = 0; i < cookingLevel1.length; i ++) {
+					System.out.println((i + 1) + ". " + cookingLevel1[i]);
+				}
+			}
+		}
+		
+		/*
 		while (activityCooking > 0) {
 			
 			// Check the player's cooking experience level
@@ -251,17 +291,15 @@ public class Game {
 				activityCooking = 1;
 			}
 		} // Loop ends when player is done cooking something
+		*/
 	}// End method doCookingAction
 	
 	// Method for doing the exercise action
 		public static void doExerciseAction () {
 			
-			Scanner in = new Scanner(System.in);
-			
 			int activityExercise = 1;
 			
 			// Player Variables
-			int playerActionPts = 50;
 			int exerciseExperiencePts = 0;
 			int playerExerciseExpLevel = 1;
 			
@@ -289,6 +327,7 @@ public class Game {
 			int squatwithdumbbellExpEarned = 36;
 			int dumbbellcurlspressesExpEarned = 32;
 			
+			/*
 			while (activityExercise > 0) {
 				
 				// Check the player's exercise experience level
@@ -377,5 +416,6 @@ public class Game {
 					activityExercise = 1;
 				}
 			} // Loop ends when player is done exercising
-		}// End method doExcerciseAction
+			*/
+	}// End method doExcerciseAction
 } // End Game class

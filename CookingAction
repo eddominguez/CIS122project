@@ -1,0 +1,220 @@
+import java.util.*;
+
+public class CookingAction {
+	
+	// Scanner for user input
+	static Scanner in = new Scanner(System.in);
+	
+	// Action Variables
+	static int activityCooking = 1;	
+
+	// Player Variables
+	static int cookingExperiencePts = 0;
+	static int playerCookingExpLevel = 1;
+	
+	// Array list to store all of the cooking options
+	static List<String> cookingOptions = new ArrayList<String>();
+
+	public static void main(String[] args) {
+		
+		while (activityCooking > 0) {
+
+			checkExpLevel();
+			
+			activityCooking = 0;
+			break;
+		}
+	} // End main method
+	
+	// Method to check the player's cooking experience level and print their selection options
+	public static void checkExpLevel() {
+		
+		int levelChecking = 1;
+
+		// Level 1 cooking actions/exp
+		String[] cookingLevel1 = {"Toast", "Cereal", "Fruit"};
+		
+		// Level 2 cooking actions/exp
+		String[] cookingLevel2 = {"Sandwich", "Grilled Cheese", "Salad"};
+		
+		// Level 3 cooking actions/exp
+		String[] cookingLevel3 = {"Omelette", "Lasagna", "Pasta"};
+		
+		// Level 4 cooking actions/exp
+		String[] cookingLevel4 = {"BBQ", "Meatloaf", "Beef Vegetable Stew"};
+		
+		CHECKING:
+		
+		while (levelChecking > 0) {
+			if(playerCookingExpLevel == 1) {
+				
+				// Prompt the player to choose what to cook
+				System.out.println("\nChoose something to cook: ");
+				
+				// Add cookingLevel1 array to cookingOptions
+				for (String options : cookingLevel1) {
+					cookingOptions.add(options);
+				}
+				
+				// Loop to list out the cookingLevel1 array
+				for(int i = 0; i < cookingOptions.size(); i ++) {
+					System.out.println((i + 1) + ". " + cookingOptions.get(i));
+				}
+				
+				// Get the player's selection for input
+				int input = in.nextInt();
+				
+				// If the player chooses toast
+				if (input == cookingOptions.indexOf("Toast") + 1) {
+					cookToast();
+					levelChecking = 0;
+				}
+				// If the player chooses cereal
+				else if (input == cookingOptions.indexOf("Cereal") + 1) {
+					cookCereal();
+					levelChecking = 0;
+				}
+				// If the player chooses fruit
+				else if (input == cookingOptions.indexOf("Fruit") + 1) {
+					cookFruit();
+					levelChecking = 0;
+				}
+				else {
+					System.out.println("\n### Invalid Input! ###\n");
+					levelChecking = 1;
+					continue CHECKING;
+				}
+			}
+			else if(playerCookingExpLevel == 2) {
+				
+				// Prompt the player to choose what to cook
+				System.out.println("Choose something to cook: ");
+				
+				// Add cookingLevel2 array to cookingOptions
+				for (String options : cookingLevel1) {
+					cookingOptions.add(options);
+				}
+				// Add cookingLevel2 array to cookingOptions
+				for (String options : cookingLevel2) {
+					cookingOptions.add(options);
+				}
+				
+				// Loop to list out the cookingLevel2 array
+				for(int i = 0; i < cookingOptions.size(); i ++) {
+					System.out.println((i + 1) + ". " + cookingOptions.get(i));
+				}
+				
+				// Get the player's selection for input
+				int input = in.nextInt();
+			}
+			else if(playerCookingExpLevel == 3) {
+				
+				// Prompt the player to choose what to cook
+				System.out.println("Choose something to cook: ");
+				
+				// Add cookingLevel1 array to cookingOptions
+				for (String options : cookingLevel1) {
+					cookingOptions.add(options);
+				}
+				// Add cookingLevel2 array to cookingOptions
+				for (String options : cookingLevel2) {
+					cookingOptions.add(options);
+				}
+				// Add cookingLevel3 array to cookingOptions
+				for (String options : cookingLevel3) {
+					cookingOptions.add(options);
+				}
+				
+				// Loop to list out the cookingLevel3 array
+				for(int i = 0; i < cookingOptions.size(); i ++) {
+					System.out.println((i + 1) + ". " + cookingOptions.get(i));
+				}
+				
+				// Get the player's selection for input
+				int input = in.nextInt();
+			}
+			else if(playerCookingExpLevel >= 4) {
+				
+				// Prompt the player to choose what to cook
+				System.out.println("Choose something to cook: ");
+				
+				// Add cookingLevel1 array to cookingOptions
+				for (String options : cookingLevel1) {
+					cookingOptions.add(options);
+				}
+				// Add cookingLevel2 array to cookingOptions
+				for (String options : cookingLevel2) {
+					cookingOptions.add(options);
+				}
+				// Add cookingLevel3 array to cookingOptions
+				for (String options : cookingLevel3) {
+					cookingOptions.add(options);
+				}
+				// Add cookingLevel4 array to cookingOptions
+				for (String options : cookingLevel3) {
+					cookingOptions.add(options);
+				}
+				
+				// Loop to list out the cookingLevel4 array
+				for(int i = 0; i < cookingOptions.size(); i ++) {
+					System.out.println((i + 1) + ". " + cookingOptions.get(i));
+				}
+				
+				// Get the player's selection for input
+				int input = in.nextInt();
+			}
+			else {
+				System.out.println("\n### Invalid Input! ###\n");
+				levelChecking = 1;
+				continue CHECKING;
+			}
+		}
+	} // End method checkExpLevel
+	
+	// Method to make toast
+	private static String cookToast() {
+		
+		Random randomResponse = new Random();
+		
+		String[] toastMessage = {"\nYou toasted some toast to golden brown perfection! You are very satisfied.\n",
+		"\nYour toast was mediocre. You are not very satisfied.\n",
+		"\nYou burnt your toast. You decide to throw it away. You are still hungry.\n"};
+		
+		String selectedMessage = toastMessage[randomResponse.nextInt(toastMessage.length)];
+		
+		System.out.println(selectedMessage);
+		
+		return selectedMessage;
+		
+	} // End method cookToast
+
+	// Method to make cereal
+	private static String cookCereal () {
+		Random randomResponse = new Random();
+		
+		String[] cerealMessage = {"\nYour cereal had a perfect balance of cereal and milk! You are very satisfied.\n",
+				"\nYour cereal choice was slightly boring. You are not very satisfied.\n",
+				"\nThe milk for your cereal was expired. You decide to throw it away. You are still hungry.\n"};
+		
+		String selectedMessage = cerealMessage[randomResponse.nextInt(cerealMessage.length)];
+		
+		System.out.println(selectedMessage);
+		
+		return selectedMessage;
+	} // End method cookCereal
+	
+	// Method to prepare fruit
+		private static String cookFruit () {
+			Random randomResponse = new Random();
+			
+			String[] cerealMessage = {"\nYou cut up your fruit in perfect bite size shapes. You are very satisfied.\n",
+					"\nYou only had boring fruit to eat. You are not very satisfied.\n",
+					"\nThe fruit didn't taste good. You decide to throw the rest of it away. You are still hungry.\n"};
+			
+			String selectedMessage = cerealMessage[randomResponse.nextInt(cerealMessage.length)];
+			
+			System.out.println(selectedMessage);
+			
+			return selectedMessage;
+		} // End method cookCereal
+} // End CookingAction class

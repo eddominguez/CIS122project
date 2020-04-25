@@ -1,0 +1,77 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.border.EmptyBorder;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+public class MainMenu extends JFrame {
+	JFrame window;
+	Container con;
+	JPanel titleNamePanel,startButtonPanel;
+	JLabel titleNameLabel;
+	//design the format of the titleName
+	Font titleFont = new Font("Sans Serif",Font.PLAIN,60);
+	JButton startButton;
+	Font normalFont = new Font("Sans Serif",Font.PLAIN,30);
+	private JPanel contentPane;
+
+	//display the main menu
+	public static void main(String[] args) {
+		new MainMenu();
+	}
+
+	public MainMenu() {
+		//set the format of the window
+		window = new JFrame();
+		window.setSize(800,600);
+		window = new JFrame("games");
+		window.getContentPane().setBackground(Color.black);
+		/*if you want to insert a picture from your laptop as the image of the main menu
+		try {
+			window.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("C:\\Users\\wensu\\Desktop\\images\\game2.jpg")))));
+		}
+		catch(IOException e) { System.out.println("No image"); }
+		*/
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setLayout(null);
+		window.setVisible(true);
+		con = window.getContentPane();
+		
+		//create a title panel to window
+		titleNamePanel = new JPanel();
+		titleNamePanel.setBounds(650,200, 600,150);
+		titleNamePanel.setBackground(Color.black);
+		//add title name of this game
+		titleNameLabel = new JLabel("Cooking games");
+		titleNameLabel.setForeground(Color.white);
+		titleNameLabel.setFont(titleFont);
+		//add label to the panel
+		titleNamePanel.add(titleNameLabel);
+		//add title panel to the container
+		con.add(titleNamePanel);
+		//create a button panel to window
+		startButtonPanel=new JPanel();
+		startButtonPanel.setBounds(850,400,200,100);
+		startButtonPanel.setBackground(Color.black);
+		//set the format of the button
+		startButton = new JButton("START");
+		startButton.setBackground(Color.black);
+		startButton.setForeground(Color.white);
+		startButton.setFont(normalFont);
+		//add the button to panel
+		startButtonPanel.add(startButton);
+		//add button panel to container
+		con.add(startButtonPanel);
+		 
+		}//end of the MainMenu method
+}//end of the class body
+
+

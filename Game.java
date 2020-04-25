@@ -12,6 +12,9 @@ public class Game {
 	static boolean running = true;
 	static int continuePlaying = 1;
 	
+	// Array list to store all of the action options
+	static List<String> actionOptions = new ArrayList<String>();
+	
 	public static void main(String[] args) {
 		
 		// Welcome message
@@ -52,32 +55,49 @@ public class Game {
 					}
 				}
 				// If the player has enough AP, they can start doing actions
-				else {	
+				else {
 					//Game prompts the player to choose an action
 					System.out.println("Choose an activity or task to do: ");
 					
 					// List of actions for the player to choose from
-					// If adding actions to the list, resting and quitting should always be in the final two slots of the string
-					String[] actionOptions = {"1. Cooking", "2. Exercise", "3. Cleaning", "4. Entertainment", "5. Rest", "6. I think I'm done for now"};
+					String[] optionList = {"Cooking", "Exercise", "Cleaning", "Entertainment", "Rest", "I think I'm done for now"};
 					
-					// Print out the actionOptions string
-					for (String action : actionOptions) {
-						System.out.println(action);
+					// Make sure actionOptions list is clear before adding any items
+					actionOptions.clear();
+					
+					// Add cookingLevel1 array to cookingOptions
+					for (String options : optionList) {
+						actionOptions.add(options);
+					}
+					
+					// Loop to list out the cookingLevel1 array
+					for(int i = 0; i < actionOptions.size(); i ++) {
+						System.out.println((i + 1) + ". " + actionOptions.get(i));
 					}
 					
 					// Get the player's selection for input
-					int actionInput = in.nextInt();
+					int input = in.nextInt();
 					
-					// If the player chooses anything except resting or quitting
-					if (actionInput < actionOptions.length - 1) {
+					// If the player chooses toast
+					if (input == actionOptions.indexOf("Cooking") + 1) {
 						executeAction();
 					}
-					// If the player chooses to rest
-					else if (actionInput < actionOptions.length) {
+					// If the player chooses cereal
+					else if (input == actionOptions.indexOf("Exercise") + 1) {
+						executeAction();
+					}
+					// If the player chooses fruit
+					else if (input == actionOptions.indexOf("Cleaning") + 1) {
+						executeAction();
+					}
+					// If the player chooses fruit
+					else if (input == actionOptions.indexOf("Entertainment") + 1) {
+						executeAction();
+					}
+					else if (input == actionOptions.indexOf("Rest") + 1) {
 						takeARest();
 					}
-					// If the player chooses to quit
-					else if (actionInput == actionOptions.length) {
+					else if (input == actionOptions.indexOf("I think I'm done for now") + 1) {
 						System.out.println("\nGREAT JOB TODAY!!!\nSEE YOU NEXT TIME!!!");
 						continuePlaying = 0;
 						running = false;
@@ -94,7 +114,7 @@ public class Game {
 					System.out.println("2. I think I'm done for now.");
 
 					// Get the player's selection for input
-					actionInput = in.nextInt();
+					int actionInput = in.nextInt();
 					
 					// If the player chooses to continue
 					if(actionInput == 1) {

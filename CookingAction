@@ -19,7 +19,7 @@ public class CookingAction {
 		
 		while (activityCooking > 0) {
 
-			checkExpLevel();
+			checkExpLevel(1, 1);
 			
 			activityCooking = 0;
 			break;
@@ -27,9 +27,7 @@ public class CookingAction {
 	} // End main method
 	
 	// Method to check the player's cooking experience level and print their selection options
-	public static void checkExpLevel() {
-		
-		int levelChecking = 1;
+	public static void checkExpLevel(int levelChecker, int playerCookingExpLevel) {
 
 		// Level 1 cooking actions/exp
 		String[] cookingLevel1 = {"Toast", "Cereal", "Fruit"};
@@ -43,13 +41,14 @@ public class CookingAction {
 		// Level 4 cooking actions/exp
 		String[] cookingLevel4 = {"BBQ", "Meatloaf", "Beef Vegetable Stew"};
 		
-		CHECKING:
-		
 		while (levelChecking > 0) {
 			if(playerCookingExpLevel == 1) {
 				
 				// Prompt the player to choose what to cook
 				System.out.println("\nChoose something to cook: ");
+				
+				// Make sure cookingOptions list is clear before adding any items
+				cookingOptions.clear();
 				
 				// Add cookingLevel1 array to cookingOptions
 				for (String options : cookingLevel1) {
@@ -80,15 +79,17 @@ public class CookingAction {
 					levelChecking = 0;
 				}
 				else {
-					System.out.println("\n### Invalid Input! ###\n");
+					System.out.println("\n### Invalid Input! ###");
 					levelChecking = 1;
-					continue CHECKING;
 				}
 			}
 			else if(playerCookingExpLevel == 2) {
 				
 				// Prompt the player to choose what to cook
 				System.out.println("Choose something to cook: ");
+				
+				// Make sure cookingOptions list is clear before adding any items
+				cookingOptions.clear();
 				
 				// Add cookingLevel2 array to cookingOptions
 				for (String options : cookingLevel1) {
@@ -111,6 +112,9 @@ public class CookingAction {
 				
 				// Prompt the player to choose what to cook
 				System.out.println("Choose something to cook: ");
+				
+				// Make sure cookingOptions list is clear before adding any items
+				cookingOptions.clear();
 				
 				// Add cookingLevel1 array to cookingOptions
 				for (String options : cookingLevel1) {
@@ -138,6 +142,9 @@ public class CookingAction {
 				// Prompt the player to choose what to cook
 				System.out.println("Choose something to cook: ");
 				
+				// Make sure cookingOptions list is clear before adding any items
+				cookingOptions.clear();
+				
 				// Add cookingLevel1 array to cookingOptions
 				for (String options : cookingLevel1) {
 					cookingOptions.add(options);
@@ -164,9 +171,8 @@ public class CookingAction {
 				int input = in.nextInt();
 			}
 			else {
-				System.out.println("\n### Invalid Input! ###\n");
+				System.out.println("\n### Invalid Input! ###");
 				levelChecking = 1;
-				continue CHECKING;
 			}
 		}
 	} // End method checkExpLevel

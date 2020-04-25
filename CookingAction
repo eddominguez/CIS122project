@@ -86,7 +86,7 @@ public class CookingAction {
 			else if(playerCookingExpLevel == 2) {
 				
 				// Prompt the player to choose what to cook
-				System.out.println("Choose something to cook: ");
+				System.out.println("\nChoose something to cook: ");
 				
 				// Make sure cookingOptions list is clear before adding any items
 				cookingOptions.clear();
@@ -146,7 +146,7 @@ public class CookingAction {
 			else if(playerCookingExpLevel == 3) {
 				
 				// Prompt the player to choose what to cook
-				System.out.println("Choose something to cook: ");
+				System.out.println("\nChoose something to cook: ");
 				
 				// Make sure cookingOptions list is clear before adding any items
 				cookingOptions.clear();
@@ -225,7 +225,7 @@ public class CookingAction {
 			else if(playerCookingExpLevel >= 4) {
 				
 				// Prompt the player to choose what to cook
-				System.out.println("Choose something to cook: ");
+				System.out.println("\nChoose something to cook: ");
 				
 				// Make sure cookingOptions list is clear before adding any items
 				cookingOptions.clear();

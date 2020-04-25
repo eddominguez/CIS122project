@@ -121,7 +121,11 @@ public class Game {
 	// Method for executing an action
 	public static void executeAction () {
 		
-		CookingAction.checkExpLevel();
+		/* Passing two arguments:
+		 * 1st argument should be greater than zero so the level checker can execute
+		 * 2nd argument should be the player's current cooking level
+		*/
+		CookingAction.checkExpLevel(1, 1);
 		
 		// Decrease the player's AP by 10
 		playerActionPts -= 10;

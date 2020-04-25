@@ -107,6 +107,42 @@ public class CookingAction {
 				
 				// Get the player's selection for input
 				int input = in.nextInt();
+				
+				// If the player chooses toast
+				if (input == cookingOptions.indexOf("Toast") + 1) {
+					cookToast();
+					levelChecker = 0;
+				}
+				// If the player chooses cereal
+				else if (input == cookingOptions.indexOf("Cereal") + 1) {
+					cookCereal();
+					levelChecker = 0;
+				}
+				// If the player chooses fruit
+				else if (input == cookingOptions.indexOf("Fruit") + 1) {
+					cookFruit();
+					levelChecker = 0;
+				}
+				
+				// If the player chooses sandwich
+				else if (input == cookingOptions.indexOf("Sandwich") + 1) {
+					cookSandwich();
+					levelChecker = 0;
+				}
+				// If the player chooses grilled cheese
+				else if (input == cookingOptions.indexOf("Grilled Cheese") + 1) {
+					cookGrilledCheese();
+					levelChecker = 0;
+				}
+				// If the player chooses salad
+				else if (input == cookingOptions.indexOf("Salad") + 1) {
+					cookSalad();
+					levelChecker = 0;
+				}
+				else {
+					System.out.println("\n### Invalid Input! ###");
+					levelChecker = 1;
+				}
 			}
 			else if(playerCookingExpLevel == 3) {
 				
@@ -210,17 +246,62 @@ public class CookingAction {
 	} // End method cookCereal
 	
 	// Method to prepare fruit
-		private static String cookFruit () {
-			Random randomResponse = new Random();
+	private static String cookFruit () {
+		Random randomResponse = new Random();
+		
+		String[] fruitMessage = {"\nYou cut up your fruit in perfect bite size shapes. You are very satisfied.\n",
+				"\nYou only had boring fruit to eat. You are not very satisfied.\n",
+				"\nThe fruit didn't taste good. You decide to throw the rest of it away. You are still hungry.\n"};
 			
-			String[] cerealMessage = {"\nYou cut up your fruit in perfect bite size shapes. You are very satisfied.\n",
-					"\nYou only had boring fruit to eat. You are not very satisfied.\n",
-					"\nThe fruit didn't taste good. You decide to throw the rest of it away. You are still hungry.\n"};
+		String selectedMessage = fruitMessage[randomResponse.nextInt(fruitMessage.length)];
 			
-			String selectedMessage = cerealMessage[randomResponse.nextInt(cerealMessage.length)];
+		System.out.println(selectedMessage);
 			
-			System.out.println(selectedMessage);
+		return selectedMessage;
+	} // End method cookFruit
+	
+	// Method to make a sandwich
+	private static String cookSandwich () {
+		Random randomResponse = new Random();
+		
+		String[] sandwichMessage = {"\nYou made a sandwich stacked with all of the tastiest ingredients. You are very satisfied.\n",
+				"\nYour sandwich was not made with much love. You are not very satisfied.\n",
+				"\nYou only had half of the ingredients to make your sandwich so it wasn't very good. You are still hungry.\n"};
 			
-			return selectedMessage;
-		} // End method cookCereal
+		String selectedMessage = sandwichMessage[randomResponse.nextInt(sandwichMessage.length)];
+			
+		System.out.println(selectedMessage);
+			
+		return selectedMessage;
+	} // End method cookSandwich
+	
+	// Method to cook grilled cheese
+	private static String cookGrilledCheese () {
+		Random randomResponse = new Random();
+		
+		String[] grilledcheeseMessage = {"\nYour cheese was perfectly melty and your bread was beautifully toasted. You are very satisfied.\n",
+				"\nYour cheese wasn't melted all the way. You are not very satisfied.\n",
+				"\nYou burnt your grilled cheese. You decide to throw it away. You are still hungry.\n"};
+			
+		String selectedMessage = grilledcheeseMessage[randomResponse.nextInt(grilledcheeseMessage.length)];
+			
+		System.out.println(selectedMessage);
+			
+		return selectedMessage;
+	} // End method cookGrilledCheese
+	
+	// Method to prepare salad
+	private static String cookSalad () {
+		Random randomResponse = new Random();
+		
+		String[] saladMessage = {"\nYour salad was very fresh and looked amazing. You are very satisfied.\n",
+				"\nYour favorite dressing was gone so you had to use the boring kind. You are not very satisfied.\n",
+				"\nYour lettuce was all wilty and not very green. You deicde to throw it away. You are still hungry.\n"};
+			
+		String selectedMessage = saladMessage[randomResponse.nextInt(saladMessage.length)];
+			
+		System.out.println(selectedMessage);
+			
+		return selectedMessage;
+	} // End method cookSalad
 } // End CookingAction class

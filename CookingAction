@@ -41,7 +41,7 @@ public class CookingAction {
 		// Level 4 cooking actions/exp
 		String[] cookingLevel4 = {"BBQ", "Meatloaf", "Beef Vegetable Stew"};
 		
-		while (levelChecking > 0) {
+		while (levelChecker > 0) {
 			if(playerCookingExpLevel == 1) {
 				
 				// Prompt the player to choose what to cook
@@ -66,21 +66,21 @@ public class CookingAction {
 				// If the player chooses toast
 				if (input == cookingOptions.indexOf("Toast") + 1) {
 					cookToast();
-					levelChecking = 0;
+					levelChecker = 0;
 				}
 				// If the player chooses cereal
 				else if (input == cookingOptions.indexOf("Cereal") + 1) {
 					cookCereal();
-					levelChecking = 0;
+					levelChecker = 0;
 				}
 				// If the player chooses fruit
 				else if (input == cookingOptions.indexOf("Fruit") + 1) {
 					cookFruit();
-					levelChecking = 0;
+					levelChecker = 0;
 				}
 				else {
 					System.out.println("\n### Invalid Input! ###");
-					levelChecking = 1;
+					levelChecker = 1;
 				}
 			}
 			else if(playerCookingExpLevel == 2) {
@@ -172,7 +172,7 @@ public class CookingAction {
 			}
 			else {
 				System.out.println("\n### Invalid Input! ###");
-				levelChecking = 1;
+				levelChecker = 1;
 			}
 		}
 	} // End method checkExpLevel

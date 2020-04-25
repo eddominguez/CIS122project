@@ -141,6 +141,47 @@ public class Game {
 	
 	// Method for leveling up skills
 	public static void expLevelUp () {
+		int curXP = 0;
+		int level = 0;
+		int reqXP = 0;
+		int[] currentLevel = { 1, 2, 3, 4, 5, 6, 7};
+		int[] requiredXP = { 0, 5, 10, 25, 50, 75, 100};
+		public void levelUp() {
+   			if (curXP == requiredXP[0]) {
+    				level = currentLevel[0];
+   			} else if (curXP == requiredXP[1]) {
+        			level = currentLevel[1];
+    			} else if (curXP == requiredXP[2]) {
+        			level = currentLevel[2];
+    			} else if (curXP == requiredXP[3]) {
+        			level = currentLevel[3];
+    			} else if (curXP == requiredXP[4]) {
+        			level = currentLevel[4];
+    			} else if (curXP == requiredXP[5]) {
+        			level = currentLevel[5];
+    			} else if (curXP == requiredXP[6]) {
+        			level = currentLevel[6];
+    			} else if (curXP == requiredXP[7]) {
+        			level = currentLevel[7];
+		}
+		public void levelUpXp() {
+   			if (level == currentLevel[0]) {
+       				reqXP = requiredXP[0];
+   			} else if (level == currentLevel[1]) {
+        			reqXP = requiredXP[1];
+   			} else if (level == currentLevel[2]) {
+        			reqXP = requiredXP[2];
+    			} else if (level == currentLevel[3]) {
+    				reqXP = requiredXP[3];
+    			} else if (level == currentLevel[4]) {
+        			reqXP = requiredXP[4];
+    			} else if (level == currentLevel[5]) {
+        			reqXP = requiredXP[5];
+    			} else if (level == currentLevel[6]) {
+       				reqXP = requiredXP[6];
+   			} else if (level == currentLevel[7]) {
+        			reqXP = requiredXP[7];
+		}
 
 	} // End expLevelUp method
 	

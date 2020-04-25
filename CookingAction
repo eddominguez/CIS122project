@@ -243,7 +243,7 @@ public class CookingAction {
 					cookingOptions.add(options);
 				}
 				// Add cookingLevel4 array to cookingOptions
-				for (String options : cookingLevel3) {
+				for (String options : cookingLevel4) {
 					cookingOptions.add(options);
 				}
 				

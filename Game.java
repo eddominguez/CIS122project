@@ -208,6 +208,19 @@ public class Game {
 		}
 
 	} // End expLevelUp method
+			
+	// Method for check current XP
+	private void checkCurrentXP() {
+    		Integer xpRequired = null;
+    		do {
+        		xpRequired = xpPerLevel.get(curLevel);
+        		if (null != xpRequired) {
+            			if (curXP >= xpRequired) {
+                			performLevelUp();
+            			}
+        		}
+    		} while (xpRequired == null || curXP < xpRequired);
+	}
 	
 	// Method for tracking points
 	public static void pointTracker () {

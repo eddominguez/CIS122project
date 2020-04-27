@@ -80,10 +80,7 @@ public class Game {
 					
 					// If the player chooses cooking
 					if (input == actionOptions.indexOf("Cooking") + 1) {
-						/* Passing two arguments:
-						 * 1st argument should be greater than zero so the level checker can execute
-						 * 2nd argument should be the player's current cooking level
-						*/
+						// Passing argument should be greater than zero so the level checker can execute
 						CookingAction.checkExpLevel(1);
 						CookingAction.addCookingExp();
 						CookingAction.cookingLevelUp();
@@ -94,10 +91,7 @@ public class Game {
 					}
 					// If the player chooses exercise
 					else if (input == actionOptions.indexOf("Exercise") + 1) {
-						/* Passing two arguments:
-						 * 1st argument should be greater than zero so the level checker can execute
-						 * 2nd argument should be the player's current cooking level
-						*/
+						// Passing argument should be greater than zero so the level checker can execute
 						ExerciseAction.checkExpLevel(1);
 						ExerciseAction.addExerciseExp();
 						ExerciseAction.exerciseLevelUp();
@@ -108,10 +102,7 @@ public class Game {
 					}
 					// If the player chooses cleaning
 					else if (input == actionOptions.indexOf("Cleaning") + 1) {
-						/* Passing two arguments:
-						 * 1st argument should be greater than zero so the level checker can execute
-						 * 2nd argument should be the player's current cooking level
-						*/
+						// Passing argument should be greater than zero so the level checker can execute
 						CleaningAction.checkExpLevel(1);
 						CleaningAction.addCleaningExp();
 						CleaningAction.cleaningLevelUp();
@@ -122,13 +113,10 @@ public class Game {
 					}
 					// If the player chooses entertainment
 					else if (input == actionOptions.indexOf("Entertainment") + 1) {
-						/* Passing two arguments:
-						 * 1st argument should be greater than zero so the level checker can execute
-						 * 2nd argument should be the player's current cooking level
-						*/
-						CookingAction.checkExpLevel(1);
-						CookingAction.addCookingExp();
-						CookingAction.cookingLevelUp();
+						// Passing argument should be greater than zero so the level checker can execute
+						EntertainmentAction.checkExpLevel(1);
+						EntertainmentAction.addEntertainmentExp();
+						EntertainmentAction.entertainmentLevelUp();
 
 						// Decrease the player's AP by 10
 						playerActionPts -= 10;

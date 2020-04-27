@@ -297,7 +297,7 @@ public class CleaningAction {
 	// Method to track Experience Points
 	public static int addCleaningExp () {
 		
-		System.out.println("\nCurrent cookingExperiencePts: " + cleaningExperiencePts);
+		System.out.println("\nCurrent cleaningExperiencePts: " + cleaningExperiencePts);
 		
 		return cleaningExperiencePts;
 

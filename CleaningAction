@@ -1,0 +1,668 @@
+package finalProject;
+
+import java.util.*;
+
+public class CleaningAction {
+
+	// Scanner for user input
+	static Scanner in = new Scanner(System.in);
+
+	// Action Variables
+	static int activityCleaning = 1;
+
+	// Player Variables
+	private static int cleaningExperiencePts = 0;
+	static int playerCleaningExpLevel = 1;
+
+	// Array list to store all of the cooking options
+	static List<String> cleaningOptions = new ArrayList<String>();
+
+	public static void main(String[] args) {
+			
+			while (activityCleaning > 0) {
+
+				checkExpLevel(1);
+				
+				activityCleaning = 0;
+				break;
+			}
+	} // End main method
+
+	// Method to check the player's cooking experience level and print their
+	// selection options
+	public static void checkExpLevel(int levelChecker) {
+		
+		// Level 1 cooking actions/exp
+		String[] cleaningLevel1 = { "Vacuum", "Put Stuff Away", "Make Bed" };
+
+		// Level 2 cooking actions/expp
+		String[] cleaningLevel2 = { "Wash Dishes", "Do Laundry", "Take Out Garbage" };
+
+		// Level 3 cooking actions/exp
+		String[] cleaningLevel3 = { "Clean Your Closet", "Clean The Yard", "Clean The Windows" };
+
+		// Level 4 cooking actions/exp
+		String[] cleaningLevel4 = { "Clean The Bathroom", "Polish The Furniture", "Clean The Roof" };
+
+		while (levelChecker > 0) {
+			if (playerCleaningExpLevel == 1) {
+
+				// Prompt the player to choose what to cook
+				System.out.println("\nChoose how you want to clean: ");
+
+				// Make sure cookingOptions list is clear before adding any items
+				cleaningOptions.clear();
+
+				// Add cookingLevel1 array to cookingOptions
+				for (String options : cleaningLevel1) {
+					cleaningOptions.add(options);
+				}
+
+				// Loop to list out the cookingLevel1 array
+				for (int i = 0; i < cleaningOptions.size(); i++) {
+					System.out.println((i + 1) + ". " + cleaningOptions.get(i));
+				}
+
+				// Get the player's selection for input
+				int input = in.nextInt();
+
+				// If the player chooses toast
+				if (input == cleaningOptions.indexOf("Vacuum") + 1) {
+					vacuum();
+					levelChecker = 0;
+				}
+				// If the player chooses cereal
+				else if (input == cleaningOptions.indexOf("Put Stuff Away") + 1) {
+					putStuffAway();
+					levelChecker = 0;
+				}
+				// If the player chooses fruit
+				else if (input == cleaningOptions.indexOf("Make Bed") + 1) {
+					makeBed();
+					levelChecker = 0;
+				} else {
+					System.out.println("### Invalid Input! ###");
+					levelChecker = 1;
+				}
+			} else if (playerCleaningExpLevel == 2) {
+
+				// Prompt the player to choose what to cook
+				System.out.println("\nChoose how you want to clean: ");
+
+				// Make sure cookingOptions list is clear before adding any items
+				cleaningOptions.clear();
+
+				// Add cookingLevel2 array to cookingOptions
+				for (String options : cleaningLevel1) {
+					cleaningOptions.add(options);
+				}
+				// Add cookingLevel2 array to cookingOptions
+				for (String options : cleaningLevel2) {
+					cleaningOptions.add(options);
+				}
+
+				// Loop to list out the cookingLevel2 array
+				for (int i = 0; i < cleaningOptions.size(); i++) {
+					System.out.println((i + 1) + ". " + cleaningOptions.get(i));
+				}
+
+				// Get the player's selection for input
+				int input = in.nextInt();
+
+				// If the player chooses toast
+				if (input == cleaningOptions.indexOf("Vacuum") + 1) {
+					vacuum();
+					levelChecker = 0;
+				}
+				// If the player chooses cereal
+				else if (input == cleaningOptions.indexOf("Put Stuff Away") + 1) {
+					putStuffAway();
+					levelChecker = 0;
+				}
+				// If the player chooses fruit
+				else if (input == cleaningOptions.indexOf("Make Bed") + 1) {
+					makeBed();
+					levelChecker = 0;
+				}
+				// If the player chooses sandwich
+				else if (input == cleaningOptions.indexOf("Wash Dishes") + 1) {
+					washDishes();
+					levelChecker = 0;
+				}
+				// If the player chooses grilled cheese
+				else if (input == cleaningOptions.indexOf("Do Laundry") + 1) {
+					doLaundry();
+					levelChecker = 0;
+				}
+				// If the player chooses salad
+				else if (input == cleaningOptions.indexOf("Take Out Garbage") + 1) {
+					takeOutGarbage();
+					levelChecker = 0;
+				} else {
+					System.out.println("### Invalid Input! ###");
+					levelChecker = 1;
+				}
+			} else if (playerCleaningExpLevel == 3) {
+
+				// Prompt the player to choose what to cook
+				System.out.println("\nChoose how you want to cleank: ");
+
+				// Make sure cookingOptions list is clear before adding any items
+				cleaningOptions.clear();
+
+				// Add cookingLevel1 array to cookingOptions
+				for (String options : cleaningLevel1) {
+					cleaningOptions.add(options);
+				}
+				// Add cookingLevel2 array to cookingOptions
+				for (String options : cleaningLevel2) {
+					cleaningOptions.add(options);
+				}
+				// Add cookingLevel3 array to cookingOptions
+				for (String options : cleaningLevel3) {
+					cleaningOptions.add(options);
+				}
+
+				// Loop to list out the cookingLevel3 array
+				for (int i = 0; i < cleaningOptions.size(); i++) {
+					System.out.println((i + 1) + ". " + cleaningOptions.get(i));
+				}
+
+				// Get the player's selection for input
+				int input = in.nextInt();
+
+				// If the player chooses toast
+				if (input == cleaningOptions.indexOf("Vacuum") + 1) {
+					vacuum();
+					levelChecker = 0;
+				}
+				// If the player chooses cereal
+				else if (input == cleaningOptions.indexOf("Put Stuff Away") + 1) {
+					putStuffAway();
+					levelChecker = 0;
+				}
+				// If the player chooses fruit
+				else if (input == cleaningOptions.indexOf("Make Bed") + 1) {
+					makeBed();
+					levelChecker = 0;
+				}
+				// If the player chooses sandwich
+				else if (input == cleaningOptions.indexOf("Wash Dishes") + 1) {
+					washDishes();
+					levelChecker = 0;
+				}
+				// If the player chooses grilled cheese
+				else if (input == cleaningOptions.indexOf("Do Laundry") + 1) {
+					doLaundry();
+					levelChecker = 0;
+				}
+				// If the player chooses salad
+				else if (input == cleaningOptions.indexOf("Take Out Garbage") + 1) {
+					takeOutGarbage();
+					levelChecker = 0;
+				}
+				// If the player chooses omelette
+				else if (input == cleaningOptions.indexOf("Clean Your Closet") + 1) {
+					cleanYourCloset();
+					levelChecker = 0;
+				}
+				// If the player chooses lasagna
+				else if (input == cleaningOptions.indexOf("Clean The Yard") + 1) {
+					cleanTheYard();
+					levelChecker = 0;
+				}
+				// If the player chooses pasta
+				else if (input == cleaningOptions.indexOf("Clean The Windows") + 1) {
+					cleanTheWindows();
+					levelChecker = 0;
+				} else {
+					System.out.println("### Invalid Input! ###");
+					levelChecker = 1;
+				}
+			} else if (playerCleaningExpLevel >= 4) {
+
+				// Prompt the player to choose what to cook
+				System.out.println("\nChoose how you want to clean: ");
+
+				// Make sure cookingOptions list is clear before adding any items
+				cleaningOptions.clear();
+
+				// Add cookingLevel1 array to cookingOptions
+				for (String options : cleaningLevel1) {
+					cleaningOptions.add(options);
+				}
+				// Add cookingLevel2 array to cookingOptions
+				for (String options : cleaningLevel2) {
+					cleaningOptions.add(options);
+				}
+				// Add cookingLevel3 array to cookingOptions
+				for (String options : cleaningLevel3) {
+					cleaningOptions.add(options);
+				}
+				// Add cookingLevel4 array to cookingOptions
+				for (String options : cleaningLevel4) {
+					cleaningOptions.add(options);
+				}
+
+				// Loop to list out the cookingLevel4 array
+				for (int i = 0; i < cleaningOptions.size(); i++) {
+					System.out.println((i + 1) + ". " + cleaningOptions.get(i));
+				}
+
+				// Get the player's selection for input
+				int input = in.nextInt();
+				// If the player chooses toast
+				if (input == cleaningOptions.indexOf("Vacuum") + 1) {
+					vacuum();
+					levelChecker = 0;
+				}
+				// If the player chooses cereal
+				else if (input == cleaningOptions.indexOf("Put Stuff Away") + 1) {
+					putStuffAway();
+					levelChecker = 0;
+				}
+				// If the player chooses fruit
+				else if (input == cleaningOptions.indexOf("Make Bed") + 1) {
+					makeBed();
+					levelChecker = 0;
+				}
+				// If the player chooses sandwich
+				else if (input == cleaningOptions.indexOf("Wash Dishes") + 1) {
+					washDishes();
+					levelChecker = 0;
+				}
+				// If the player chooses grilled cheese
+				else if (input == cleaningOptions.indexOf("Do Laundry") + 1) {
+					doLaundry();
+					levelChecker = 0;
+				}
+				// If the player chooses salad
+				else if (input == cleaningOptions.indexOf("Take Out Garbage") + 1) {
+					takeOutGarbage();
+					levelChecker = 0;
+				}
+				// If the player chooses omelette
+				else if (input == cleaningOptions.indexOf("Clean Your Closet") + 1) {
+					cleanYourCloset();
+					levelChecker = 0;
+				}
+				// If the player chooses lasagna
+				else if (input == cleaningOptions.indexOf("Clean The Yard") + 1) {
+					cleanTheYard();
+					levelChecker = 0;
+				}
+				// If the player chooses pasta
+				else if (input == cleaningOptions.indexOf("Clean The Windows") + 1) {
+					cleanTheWindows();
+					levelChecker = 0;
+				}
+				// If the player chooses BBQ
+				else if (input == cleaningOptions.indexOf("Clean The Bathroom") + 1) {
+					cleanTheBathroom();
+					levelChecker = 0;
+				}
+				// If the player chooses meatloaf
+				else if (input == cleaningOptions.indexOf("Polish The Furniture") + 1) {
+					polishTheFurniture();
+					levelChecker = 0;
+				}
+				// If the player chooses beef vegetable stew
+				else if (input == cleaningOptions.indexOf("Clean The Roof") + 1) {
+					cleanTheRoof();
+					levelChecker = 0;
+				} else {
+					System.out.println("### Invalid Input! ###");
+					levelChecker = 1;
+				}
+			} else {
+				System.out.println("### Invalid Input! ###");
+				levelChecker = 1;
+			}
+		}
+	} // End method checkExpLevel
+	
+	// Method to track Experience Points
+	public static int addCleaningExp () {
+		
+		System.out.println("\nCurrent cookingExperiencePts: " + cleaningExperiencePts);
+		
+		return cleaningExperiencePts;
+
+	} // End addCookingExp method
+	
+	// Method for leveling up skills
+	public static void cleaningLevelUp () {
+		
+		int experiencePoints = cleaningExperiencePts;
+		
+		int[] currentLevel = { 1, 2, 3, 4};
+		int[] requiredXP = { 100, 200, 300, 400};
+		
+   		if (experiencePoints >= requiredXP[0] && experiencePoints < requiredXP[1]) {
+   			playerCleaningExpLevel = currentLevel[1];
+   			System.out.println("\nYour current level is " + playerCleaningExpLevel + "\n");
+   		}
+   		else if (experiencePoints == requiredXP[1] && experiencePoints < requiredXP[2]) {
+   			playerCleaningExpLevel = currentLevel[2];
+   			System.out.println("\nYour current level is " + playerCleaningExpLevel + "\n");
+   		}
+    	else if (experiencePoints == requiredXP[2] && experiencePoints < requiredXP[3]) {
+    		playerCleaningExpLevel = currentLevel[3];
+    		System.out.println("\nYour current level is " + playerCleaningExpLevel + "\n");
+    	}
+    	else if (experiencePoints == requiredXP[3] && experiencePoints < requiredXP[4]) {
+    		playerCleaningExpLevel = currentLevel[4];
+    		System.out.println("\nYour current level is " + playerCleaningExpLevel + "\n");
+    	}
+    	else {
+    		System.out.println("\nYour current level is " + playerCleaningExpLevel + "\n");
+    	}
+	} // End expLevelUp method
+
+
+	// Method to make toast
+	private static String vacuum () {
+
+		Random randomResponse = new Random();
+
+		String[] vacuumMessage = { "You vacuumed every room in your house. Your floors look amazing!",
+				"You only vacuumed half of floors in your house. You feel like you could hae done more",
+				"You started to vacuum, but got distracted by squirrles outside your window. You did not finish vacuuming." };
+
+		int randomValue = randomResponse.nextInt(vacuumMessage.length);
+
+		String selectedMessage = vacuumMessage[randomValue];
+
+		System.out.println(selectedMessage);
+
+		if (randomValue == 0) {
+			cleaningExperiencePts += 50;
+		} else if (randomValue == 1) {
+			cleaningExperiencePts += 20;
+		} else {
+			cleaningExperiencePts += 10;
+		}
+
+		return selectedMessage;
+
+	} // End method vacuum
+
+	// Method to put stuff away
+	private static String putStuffAway () {
+		Random randomResponse = new Random();
+
+		String[] putstuffawayMessage = { "Everything is put away neatly. Your house looks very tidy",
+				"You had too much stuff to put away. You were not able to finish putting it away.",
+				"You started putting your stuff away and noticed all the cool things you had tucked away in all the cool hiding places" };
+
+		int randomValue = randomResponse.nextInt(putstuffawayMessage.length);
+
+		String selectedMessage = putstuffawayMessage[randomValue];
+
+		System.out.println(selectedMessage);
+
+		if (randomValue == 0) {
+			cleaningExperiencePts += 50;
+		} else if (randomValue == 1) {
+			cleaningExperiencePts += 20;
+		} else {
+			cleaningExperiencePts += 10;
+		}
+
+		return selectedMessage;
+	} // End method putStuffAway
+
+	// Method to make bed
+	private static String makeBed () {
+		Random randomResponse = new Random();
+
+		String[] makebedMessage = { "Your bed is made perfectly with extra fluffy pillows and all.",
+				"Your bed is made, but you can't find your favorite blanket to go on top.",
+				"You make your bed, but the bedding is all lopsided" };
+
+		int randomValue = randomResponse.nextInt(makebedMessage.length);
+
+		String selectedMessage = makebedMessage[randomValue];
+
+		System.out.println(selectedMessage);
+
+		if (randomValue == 0) {
+			cleaningExperiencePts += 50;
+		} else if (randomValue == 1) {
+			cleaningExperiencePts += 20;
+		} else {
+			cleaningExperiencePts += 10;
+		}
+
+		return selectedMessage;
+	} // End method makeBed
+
+	// Method to wash the dishes
+	private static String washDishes () {
+		Random randomResponse = new Random();
+
+		String[] washdisheshMessage = {
+				"All the dishes are washed and put away. Your kitchen is spotless.",
+				"Your finish the dishes and realize that there are still to pans on the stove that didn't get washed yet.",
+				"Your dishwwasher broke, so you have to wash and dry all of the dishes by hand." };
+
+		int randomValue = randomResponse.nextInt(washdisheshMessage.length);
+
+		String selectedMessage = washdisheshMessage[randomValue];
+
+		System.out.println(selectedMessage);
+
+		if (randomValue == 0) {
+			cleaningExperiencePts += 80;
+		} else if (randomValue == 1) {
+			cleaningExperiencePts += 50;
+		} else {
+			cleaningExperiencePts += 30;
+		}
+		
+		return selectedMessage;
+	} // End method washDishes
+
+	// Method to do the laundry
+	private static String doLaundry () {
+		Random randomResponse = new Random();
+		String[] doLaundryMessage = {
+				"You finish cleaning all of the laundry in your house.",
+				"You still have more laundry, but at least your favorite shirt is clean now.",
+				"Your laundry pile seems to never end." };
+
+		int randomValue = randomResponse.nextInt(doLaundryMessage.length);
+
+		String selectedMessage = doLaundryMessage[randomValue];
+
+		System.out.println(selectedMessage);
+
+		if (randomValue == 0) {
+			cleaningExperiencePts += 80;
+		} else if (randomValue == 1) {
+			cleaningExperiencePts += 30;
+		} else {
+			cleaningExperiencePts += 20;
+		}
+		
+		return selectedMessage;
+	} // End method doLaundry
+
+	// Method to take out the garbage
+	private static String takeOutGarbage () {
+		Random randomResponse = new Random();
+
+		String[] takeoutgarbageMessage = { "You're happy that you took the garbage out ontime for pick-up.",
+				"You take out the garbage, but realized the recyling never got put out",
+				"Your garbage can was so full that the garbage truck didn't pick it up. Better luck next trash pick-up day" };
+
+		int randomValue = randomResponse.nextInt(takeoutgarbageMessage.length);
+
+		String selectedMessage = takeoutgarbageMessage[randomValue];
+
+		System.out.println(selectedMessage);
+
+		if (randomValue == 0) {
+			cleaningExperiencePts += 70;
+		} else if (randomValue == 1) {
+			cleaningExperiencePts += 40;
+		} else {
+			cleaningExperiencePts += 20;
+		}
+
+		return selectedMessage;
+	} // End method takeOutGarbage
+
+	// Method to clean your closet
+	private static String cleanYourCloset () {
+		Random randomResponse = new Random();
+
+		String[] cleanyourclosetMessage = { "Everything in your closet fits perfectly and its clean and well organized.",
+				"You finished cleaning your closet, but you have a lot of stuff to take to the goodwill",
+				"You get distracted by all the old clothes you used to wear that you thought were cool." };
+
+		int randomValue = randomResponse.nextInt(cleanyourclosetMessage.length);
+
+		String selectedMessage = cleanyourclosetMessage[randomValue];
+
+		System.out.println(selectedMessage);
+
+		if (randomValue == 0) {
+			cleaningExperiencePts += 100;
+		} else if (randomValue == 1) {
+			cleaningExperiencePts += 50;
+		} else {
+			cleaningExperiencePts += 20;
+		}
+
+		return selectedMessage;
+	} // End method cleanYourCloset
+
+	// Method to clean the yard
+	private static String cleanTheYard () {
+		Random randomResponse = new Random();
+
+		String[] cleantheyardMessage = {
+				"Your yard is so clean, you decide to sit outside and enjoy the job well done.",
+				"You get most of the yard cleaned up, but its not perfect yet.",
+				"Your yard is so overgrown, it will take you forver to finish cleaning it up" };
+
+		int randomValue = randomResponse.nextInt(cleantheyardMessage.length);
+
+		String selectedMessage = cleantheyardMessage[randomValue];
+
+		System.out.println(selectedMessage);
+
+		if (randomValue == 0) {
+			cleaningExperiencePts += 100;
+		} else if (randomValue == 1) {
+			cleaningExperiencePts += 60;
+		} else {
+			cleaningExperiencePts += 20;
+		}
+
+		return selectedMessage;
+	} // End method cleanTheYard
+
+	// Method to clean the windows
+	private static String cleanTheWindows() {
+		Random randomResponse = new Random();
+
+		String[] cleanthewindowsMessage = {
+				"Your windows are so clean, you decide to stare out them for a long time.",
+				"You clean the windows from the inside, then realize the outside is still dirty.",
+				"You run out of cleaning supplies and can't finish cleaning the windows" };
+
+		int randomValue = randomResponse.nextInt(cleanthewindowsMessage.length);
+
+		String selectedMessage = cleanthewindowsMessage[randomValue];
+
+		System.out.println(selectedMessage);
+
+		if (randomValue == 0) {
+			cleaningExperiencePts += 100;
+		} else if (randomValue == 1) {
+			cleaningExperiencePts += 60;
+		} else {
+			cleaningExperiencePts += 20;
+		}
+
+		return selectedMessage;
+	} // End method cleanTheWindows
+
+	// Method to clean the bathroom
+	private static String cleanTheBathroom () {
+		Random randomResponse = new Random();
+
+		String[] cleanthebathroomMessage = {
+				"Your bathroom looks super clean and shiny.",
+				"You clean the bathroom and smile, then you realize you forgot to clean the shower.",
+				"Cleaning the bathroom is your least favorite job. You contemplate whether you really want to do it or not" };
+
+		int randomValue = randomResponse.nextInt(cleanthebathroomMessage.length);
+
+		String selectedMessage = cleanthebathroomMessage[randomValue];
+
+		System.out.println(selectedMessage);
+
+		if (randomValue == 0) {
+			cleaningExperiencePts += 150;
+		} else if (randomValue == 1) {
+			cleaningExperiencePts += 80;
+		} else {
+			cleaningExperiencePts += 30;
+		}
+		return selectedMessage;
+	} // End method cleanTheBathroom
+
+	// Method to polish the furniture
+	private static String polishTheFurniture () {
+		Random randomResponse = new Random();
+
+		String[] polishthefurnitureMessage = { "You polished all of your furniture. You love how new it looks",
+				"You were only able to polish half of your furniture before you got tired of doing that.",
+				"You don't really know how to polish furniture so it didn't really turn out right." };
+
+		int randomValue = randomResponse.nextInt(polishthefurnitureMessage.length);
+
+		String selectedMessage = polishthefurnitureMessage[randomValue];
+
+		System.out.println(selectedMessage);
+
+		if (randomValue == 0) {
+			cleaningExperiencePts += 150;
+		} else if (randomValue == 1) {
+			cleaningExperiencePts += 75;
+		} else {
+			cleaningExperiencePts += 40;
+		}
+
+		return selectedMessage;
+	} // End method polishTheFurniture
+
+	// Method to clean the roof
+	private static String cleanTheRoof () {
+		Random randomResponse = new Random();
+
+		String[] cleantheroofMessage = { "You cleaned your roof to perfection. Great job!",
+				"You had some difficulty cleaning the roof, but you got the job done",
+				"As soon as you got up on the roof, you got scared and could not finish the job." };
+
+		int randomValue = randomResponse.nextInt(cleantheroofMessage.length);
+
+		String selectedMessage = cleantheroofMessage[randomValue];
+
+		System.out.println(selectedMessage);
+
+		if (randomValue == 0) {
+			cleaningExperiencePts += 150;
+		} else if (randomValue == 1) {
+			cleaningExperiencePts += 100;
+		} else {
+			cleaningExperiencePts += 40;
+		}
+
+		return selectedMessage;
+	} // End method cleanTheRoof
+
+} // End CleaningAction class

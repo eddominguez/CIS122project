@@ -70,7 +70,25 @@ public class MainMenu extends JFrame {
 		startButtonPanel.add(startButton);
 		//add button panel to container
 		con.add(startButtonPanel);
-		 
+		//repeat the step as the startButton
+		exitButtonPanel=new JPanel();
+		exitButtonPanel.setBounds(850,600,200,100);
+		exitButtonPanel.setBackground(Color.black);
+		//set the format of the button
+		exitButton = new JButton("EXIT");
+		exitButton.setBackground(Color.black);
+		exitButton.setForeground(Color.white);
+		exitButton.setFont(normalFont);
+		//add the button to panel
+		exitButtonPanel.add(exitButton);
+		//add button panel to container
+		con.add(exitButtonPanel);
+		//exit the game
+		exitButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);//fixed format to exit the game
+		}
+		});
 		}//end of the MainMenu method
 }//end of the class body
 

@@ -1,0 +1,648 @@
+import java.util.*;
+
+public class EntertainmentAction {
+
+	// Scanner for user input
+	static Scanner in = new Scanner(System.in);
+
+	// Action Variables
+	static int activityEntertainment = 1;
+
+	// Player Variables
+	private static int entertainmentExperiencePts = 0;
+	static int playerEntertainmentExpLevel = 1;
+
+	// Array list to store all of the entertainment options
+	static List<String> entertainmentOptions = new ArrayList<String>();
+
+	public static void main(String[] args) {
+			
+			while (activityEntertainment > 0) {
+
+				checkExpLevel(1);
+				
+				activityEntertainment = 0;
+				break;
+			}
+	} // End main method
+
+	// Method to check the player's entertainment experience level and print their
+	// selection options
+	public static void checkExpLevel(int levelChecker) {
+		
+		// Level 1 entertainment actions/exp
+		String[] entertainmentLevel1 = { "Listen to Music", "Watch Movie", "Watch TV" };
+
+		// Level 2 entertainment actions/exp
+		String[] entertainmentLevel2 = { "Puzzle", "Video Game", "Chess" };
+
+		// Level 3 entertainment actions/exp
+		String[] entertainmentLevel3 = { "Video Chat", "LEGO", "Draw" };
+
+		// Level 4 entertainment actions/exp
+		String[] entertainmentLevel4 = { "Design a Java App", "Deisgn a Web Page", "Design a Game" };
+
+		while (levelChecker > 0) {
+			if (playerEntertainmentExpLevel == 1) {
+
+				// Prompt the player to choose what they want to do for entertainment
+				System.out.println("\nChoose what you want to do for entertainment: ");
+
+				// Make sure entertainmentOptions list is clear before adding any items
+				entertainmentOptions.clear();
+
+				// Add entertainmentLevel1 array to cleaningOptions
+				for (String options : entertainmentLevel1) {
+					entertainmentOptions.add(options);
+				}
+
+				// Loop to list out the entertainmentLevel1 array
+				for (int i = 0; i < entertainmentOptions.size(); i++) {
+					System.out.println((i + 1) + ". " + entertainmentOptions.get(i));
+				}
+
+				// Get the player's selection for input
+				int input = in.nextInt();
+
+				// If the player chooses to listen to music
+				if (input == entertainmentOptions.indexOf("Listen to Music") + 1) {
+					listenToMusic();
+					levelChecker = 0;
+				}
+				// If the player chooses to watch a movie
+				else if (input == entertainmentOptions.indexOf("Watch Movie") + 1) {
+					watchMovie();
+					levelChecker = 0;
+				}
+				// If the player chooses to watch tv
+				else if (input == entertainmentOptions.indexOf("Watch TV") + 1) {
+					watchTV();
+					levelChecker = 0;
+				} else {
+					System.out.println("### Invalid Input! ###");
+					levelChecker = 1;
+				}
+			} else if (playerEntertainmentExpLevel == 2) {
+
+				// Prompt the player to choose what they want to do for entertainment
+				System.out.println("\nChoose what you want to do for entertainment: ");
+
+				// Make sure cleaningOptions list is clear before adding any items
+				entertainmentOptions.clear();
+
+				// Add cleaningLevel2 array to cleaningOptions
+				for (String options : entertainmentLevel1) {
+					entertainmentOptions.add(options);
+				}
+				// Add cleaningLevel2 array to cleaningOptions
+				for (String options : entertainmentLevel2) {
+					entertainmentOptions.add(options);
+				}
+
+				// Loop to list out the cleaningLevel2 array
+				for (int i = 0; i < entertainmentOptions.size(); i++) {
+					System.out.println((i + 1) + ". " + entertainmentOptions.get(i));
+				}
+
+				// Get the player's selection for input
+				int input = in.nextInt();
+
+				if (input == entertainmentOptions.indexOf("Listen to Music") + 1) {
+					listenToMusic();
+					levelChecker = 0;
+				}
+				else if (input == entertainmentOptions.indexOf("Watch Movie") + 1) {
+					watchMovie();
+					levelChecker = 0;
+				}
+				else if (input == entertainmentOptions.indexOf("Watch TV") + 1) {
+					watchTV();
+					levelChecker = 0;
+				}
+				else if (input == entertainmentOptions.indexOf("Puzzle") + 1) {
+					puzzle();
+					levelChecker = 0;
+				}
+				else if (input == entertainmentOptions.indexOf("Video Game") + 1) {
+					videoGame();
+					levelChecker = 0;
+				}
+				else if (input == entertainmentOptions.indexOf("Chess") + 1) {
+					chess();
+					levelChecker = 0;
+				} else {
+					System.out.println("### Invalid Input! ###");
+					levelChecker = 1;
+				}
+			} else if (playerEntertainmentExpLevel == 3) {
+
+				// Prompt the player to choose what they want to do for entertainment
+				System.out.println("\nChoose what you want to do for entertainment: ");
+
+				// Make sure entertainmentOptions list is clear before adding any items
+				entertainmentOptions.clear();
+
+				// Add entertainmentLevel1 array to entertainmentOptions
+				for (String options : entertainmentLevel1) {
+					entertainmentOptions.add(options);
+				}
+				// Add entertainmentLevel2 array to entertainmentOptions
+				for (String options : entertainmentLevel2) {
+					entertainmentOptions.add(options);
+				}
+				// Add entertainmentLevel3 array to entertainmentOptions
+				for (String options : entertainmentLevel3) {
+					entertainmentOptions.add(options);
+				}
+
+				// Loop to list out the entertainmentLevel3 array
+				for (int i = 0; i < entertainmentOptions.size(); i++) {
+					System.out.println((i + 1) + ". " + entertainmentOptions.get(i));
+				}
+
+				// Get the player's selection for input
+				int input = in.nextInt();
+				
+				if (input == entertainmentOptions.indexOf("Listen to Music") + 1) {
+					listenToMusic();
+					levelChecker = 0;
+				}
+				else if (input == entertainmentOptions.indexOf("Watch Movie") + 1) {
+					watchMovie();
+					levelChecker = 0;
+				}
+				else if (input == entertainmentOptions.indexOf("Watch TV") + 1) {
+					watchTV();
+					levelChecker = 0;
+				}
+				else if (input == entertainmentOptions.indexOf("Puzzle") + 1) {
+					puzzle();
+					levelChecker = 0;
+				}
+				else if (input == entertainmentOptions.indexOf("Video Game") + 1) {
+					videoGame();
+					levelChecker = 0;
+				}
+				else if (input == entertainmentOptions.indexOf("Chess") + 1) {
+					chess();
+					levelChecker = 0;
+				}
+				else if (input == entertainmentOptions.indexOf("Video Chat") + 1) {
+					videoChat();
+					levelChecker = 0;
+				}
+				else if (input == entertainmentOptions.indexOf("LEGO") + 1) {
+					lego();
+					levelChecker = 0;
+				}
+				else if (input == entertainmentOptions.indexOf("Draw") + 1) {
+					draw();
+					levelChecker = 0;
+				} else {
+					System.out.println("### Invalid Input! ###");
+					levelChecker = 1;
+				}
+			} else if (playerEntertainmentExpLevel >= 4) {
+
+				// Prompt the player to choose what they want to do for entertainment
+				System.out.println("\nChoose what you want to do for entertainment: ");
+
+				// Make sure entertainmentOptions list is clear before adding any items
+				entertainmentOptions.clear();
+
+				// Add entertainmentLevel1 array to entertainmentOptions
+				for (String options : entertainmentLevel1) {
+					entertainmentOptions.add(options);
+				}
+				// Add entertainmentLevel2 array to entertainmentOptions
+				for (String options : entertainmentLevel2) {
+					entertainmentOptions.add(options);
+				}
+				// Add entertainmentLevel3 array to entertainmentOptions
+				for (String options : entertainmentLevel3) {
+					entertainmentOptions.add(options);
+				}
+				// Add cleaningLevel4 array to cleaningOptions
+				for (String options : entertainmentLevel4) {
+					entertainmentOptions.add(options);
+				}
+
+				// Loop to list out the cleaningLevel4 array
+				for (int i = 0; i < entertainmentOptions.size(); i++) {
+					System.out.println((i + 1) + ". " + entertainmentOptions.get(i));
+				}
+
+				// Get the player's selection for input
+				int input = in.nextInt();
+
+				if (input == entertainmentOptions.indexOf("Listen to Music") + 1) {
+					listenToMusic();
+					levelChecker = 0;
+				}
+				else if (input == entertainmentOptions.indexOf("Watch Movie") + 1) {
+					watchMovie();
+					levelChecker = 0;
+				}
+				else if (input == entertainmentOptions.indexOf("Watch TV") + 1) {
+					watchTV();
+					levelChecker = 0;
+				}
+				else if (input == entertainmentOptions.indexOf("Puzzle") + 1) {
+					puzzle();
+					levelChecker = 0;
+				}
+				else if (input == entertainmentOptions.indexOf("Video Game") + 1) {
+					videoGame();
+					levelChecker = 0;
+				}
+				else if (input == entertainmentOptions.indexOf("Chess") + 1) {
+					chess();
+					levelChecker = 0;
+				}
+				else if (input == entertainmentOptions.indexOf("Video Chat") + 1) {
+					videoChat();
+					levelChecker = 0;
+				}
+				else if (input == entertainmentOptions.indexOf("LEGO") + 1) {
+					lego();
+					levelChecker = 0;
+				}
+				else if (input == entertainmentOptions.indexOf("Draw") + 1) {
+					draw();
+					levelChecker = 0;
+				}
+				else if (input == entertainmentOptions.indexOf("Design a Java App") + 1) {
+					designJavaApp();
+					levelChecker = 0;
+				}
+				else if (input == entertainmentOptions.indexOf("Deisgn a Web Page") + 1) {
+					designWebPage();
+					levelChecker = 0;
+				}
+				else if (input == entertainmentOptions.indexOf("Design a Game") + 1) {
+					designGame();
+					levelChecker = 0;
+				} else {
+					System.out.println("### Invalid Input! ###");
+					levelChecker = 1;
+				}
+			} else {
+				System.out.println("### Invalid Input! ###");
+				levelChecker = 1;
+			}
+		}
+	} // End method checkExpLevel
+	
+	// Method to track Experience Points
+	public static int addEntertainmentExp () {
+		
+		System.out.println("\nCurrent entertainmentExperiencePts: " + entertainmentExperiencePts);
+		
+		return entertainmentExperiencePts;
+
+	} // End addEntertainmentExp method
+	
+	// Method for leveling up skills
+	public static void entertainmentLevelUp () {
+		
+		int experiencePoints = entertainmentExperiencePts;
+		
+		int[] currentLevel = { 1, 2, 3, 4};
+		int[] requiredXP = { 100, 200, 300, 400};
+		
+   		if (experiencePoints >= requiredXP[0] && experiencePoints < requiredXP[1]) {
+   			playerEntertainmentExpLevel = currentLevel[1];
+   			System.out.println("\nYour current level is " + playerEntertainmentExpLevel + "\n");
+   		}
+   		else if (experiencePoints == requiredXP[1] && experiencePoints < requiredXP[2]) {
+   			playerEntertainmentExpLevel = currentLevel[2];
+   			System.out.println("\nYour current level is " + playerEntertainmentExpLevel + "\n");
+   		}
+    	else if (experiencePoints == requiredXP[2] && experiencePoints < requiredXP[3]) {
+    		playerEntertainmentExpLevel = currentLevel[3];
+    		System.out.println("\nYour current level is " + playerEntertainmentExpLevel + "\n");
+    	}
+    	else if (experiencePoints == requiredXP[3] && experiencePoints < requiredXP[4]) {
+    		playerEntertainmentExpLevel = currentLevel[4];
+    		System.out.println("\nYour current level is " + playerEntertainmentExpLevel + "\n");
+    	}
+    	else {
+    		System.out.println("\nYour current level is " + playerEntertainmentExpLevel + "\n");
+    	}
+	} // End expLevelUp method
+
+
+	// Method to listen to music
+	private static String listenToMusic() {
+
+		Random randomResponse = new Random();
+
+		String[] listentomusicMessage = {
+				"You decide to listen to music",
+				"You decide to listen to music",
+				"You decide to listen to music"};
+
+		int randomValue = randomResponse.nextInt(listentomusicMessage.length);
+
+		String selectedMessage = listentomusicMessage[randomValue];
+
+		System.out.println(selectedMessage);
+
+		if (randomValue == 0) {
+			entertainmentExperiencePts += 50;
+		} else if (randomValue == 1) {
+			entertainmentExperiencePts += 20;
+		} else {
+			entertainmentExperiencePts += 10;
+		}
+
+		return selectedMessage;
+
+	} // End listenToMusic
+
+	// Method to watch a movie
+	private static String watchMovie() {
+		Random randomResponse = new Random();
+
+		String[] watchmovieMessage = {
+				"You decide to watch a movie",
+				"You decide to watch a movie",
+				"You decide to watch a movie"};
+
+		int randomValue = randomResponse.nextInt(watchmovieMessage.length);
+
+		String selectedMessage = watchmovieMessage[randomValue];
+
+		System.out.println(selectedMessage);
+
+		if (randomValue == 0) {
+			entertainmentExperiencePts += 50;
+		} else if (randomValue == 1) {
+			entertainmentExperiencePts += 20;
+		} else {
+			entertainmentExperiencePts += 10;
+		}
+
+		return selectedMessage;
+	} // End method watchMovie
+
+	// Method to watch TV
+	private static String watchTV() {
+		Random randomResponse = new Random();
+
+		String[] watchtvMessage = {
+				"You decide to watch tv",
+				"You decide to watch tv",
+				"You decide to watch tv"};
+
+		int randomValue = randomResponse.nextInt(watchtvMessage.length);
+
+		String selectedMessage = watchtvMessage[randomValue];
+
+		System.out.println(selectedMessage);
+
+		if (randomValue == 0) {
+			entertainmentExperiencePts += 50;
+		} else if (randomValue == 1) {
+			entertainmentExperiencePts += 20;
+		} else {
+			entertainmentExperiencePts += 10;
+		}
+
+		return selectedMessage;
+	} // End method watchTV
+
+	// Method to do a puzzle
+	private static String puzzle() {
+		Random randomResponse = new Random();
+
+		String[] puzzleMessage = {
+				"You decide to do a puzzle",
+				"You decide to do a puzzle",
+				"You decide to do a puzzle" };
+
+		int randomValue = randomResponse.nextInt(puzzleMessage.length);
+
+		String selectedMessage = puzzleMessage[randomValue];
+
+		System.out.println(selectedMessage);
+
+		if (randomValue == 0) {
+			entertainmentExperiencePts += 80;
+		} else if (randomValue == 1) {
+			entertainmentExperiencePts += 50;
+		} else {
+			entertainmentExperiencePts += 30;
+		}
+		
+		return selectedMessage;
+	} // End method puzzle
+
+	// Method to do play a video game
+	private static String videoGame() {
+		Random randomResponse = new Random();
+		
+		String[] videogameMessage = {
+				"You decide to play a video game",
+				"You decide to play a video game",
+				"You decide to play a video game"};
+
+		int randomValue = randomResponse.nextInt(videogameMessage.length);
+
+		String selectedMessage = videogameMessage[randomValue];
+
+		System.out.println(selectedMessage);
+
+		if (randomValue == 0) {
+			entertainmentExperiencePts += 80;
+		} else if (randomValue == 1) {
+			entertainmentExperiencePts += 30;
+		} else {
+			entertainmentExperiencePts += 20;
+		}
+		
+		return selectedMessage;
+	} // End method VideoGame
+
+	// Method to play chess
+	private static String chess() {
+		Random randomResponse = new Random();
+
+		String[] chessMessage = { 
+				"You decide to play chess",
+				"You decide to play chess",
+				"You decide to play chess" };
+
+		int randomValue = randomResponse.nextInt(chessMessage.length);
+
+		String selectedMessage = chessMessage[randomValue];
+
+		System.out.println(selectedMessage);
+
+		if (randomValue == 0) {
+			entertainmentExperiencePts += 70;
+		} else if (randomValue == 1) {
+			entertainmentExperiencePts += 40;
+		} else {
+			entertainmentExperiencePts += 20;
+		}
+
+		return selectedMessage;
+	} // End method chess
+
+	// Method to video chat
+	private static String videoChat() {
+		Random randomResponse = new Random();
+
+		String[] videochatMessage = {
+				"You decide to video chat",
+				"You decide to video chat",
+				"You decide to video chat"  };
+
+		int randomValue = randomResponse.nextInt(videochatMessage.length);
+
+		String selectedMessage = videochatMessage[randomValue];
+
+		System.out.println(selectedMessage);
+
+		if (randomValue == 0) {
+			entertainmentExperiencePts += 100;
+		} else if (randomValue == 1) {
+			entertainmentExperiencePts += 50;
+		} else {
+			entertainmentExperiencePts += 20;
+		}
+
+		return selectedMessage;
+	} // End method videoChat
+
+	// Method to build LEGO
+	private static String lego() {
+		Random randomResponse = new Random();
+
+		String[] legoMessage = {
+				"You decide to build LEGO",
+				"You decide to build LEGO",
+				"You decide to build LEGO" };
+
+		int randomValue = randomResponse.nextInt(legoMessage.length);
+
+		String selectedMessage = legoMessage[randomValue];
+
+		System.out.println(selectedMessage);
+
+		if (randomValue == 0) {
+			entertainmentExperiencePts += 100;
+		} else if (randomValue == 1) {
+			entertainmentExperiencePts += 60;
+		} else {
+			entertainmentExperiencePts += 20;
+		}
+
+		return selectedMessage;
+	} // End method lego
+
+	// Method to draw
+	private static String draw() {
+		Random randomResponse = new Random();
+
+		String[] drawMessage = {
+				"You decide to draw",
+				"You decide to draw",
+				"You decide to draw"  };
+
+		int randomValue = randomResponse.nextInt(drawMessage.length);
+
+		String selectedMessage = drawMessage[randomValue];
+
+		System.out.println(selectedMessage);
+
+		if (randomValue == 0) {
+			entertainmentExperiencePts += 100;
+		} else if (randomValue == 1) {
+			entertainmentExperiencePts += 60;
+		} else {
+			entertainmentExperiencePts += 20;
+		}
+
+		return selectedMessage;
+	} // End method draw
+
+	// Method to design a java app
+	private static String designJavaApp() {
+		Random randomResponse = new Random();
+
+		String[] designjavaappMessage = {
+				"You decide to design a java app",
+				"You decide to design a java app",
+				"You decide to design a java app"  };
+
+		int randomValue = randomResponse.nextInt(designjavaappMessage.length);
+
+		String selectedMessage = designjavaappMessage[randomValue];
+
+		System.out.println(selectedMessage);
+
+		if (randomValue == 0) {
+			entertainmentExperiencePts += 150;
+		} else if (randomValue == 1) {
+			entertainmentExperiencePts += 80;
+		} else {
+			entertainmentExperiencePts += 30;
+		}
+		return selectedMessage;
+	} // End method designJavaApp
+
+	// Method to design a web page
+	private static String designWebPage() {
+		Random randomResponse = new Random();
+
+		String[] designwebpageMessage = {
+				"You decide to design a web page",
+				"You decide to design a web page",
+				"You decide to design a web page"  };
+
+		int randomValue = randomResponse.nextInt(designwebpageMessage.length);
+
+		String selectedMessage = designwebpageMessage[randomValue];
+
+		System.out.println(selectedMessage);
+
+		if (randomValue == 0) {
+			entertainmentExperiencePts += 150;
+		} else if (randomValue == 1) {
+			entertainmentExperiencePts += 75;
+		} else {
+			entertainmentExperiencePts += 40;
+		}
+
+		return selectedMessage;
+	} // End method designWebPage
+
+	// Method to design a game
+	private static String designGame() {
+		Random randomResponse = new Random();
+
+		String[] designgameMessage = {
+				"You decide to design a game",
+				"You decide to design a game",
+				"You decide to design a game" };
+
+		int randomValue = randomResponse.nextInt(designgameMessage.length);
+
+		String selectedMessage = designgameMessage[randomValue];
+
+		System.out.println(selectedMessage);
+
+		if (randomValue == 0) {
+			entertainmentExperiencePts += 150;
+		} else if (randomValue == 1) {
+			entertainmentExperiencePts += 100;
+		} else {
+			entertainmentExperiencePts += 40;
+		}
+
+		return selectedMessage;
+	} // End method designGame
+
+} // End EntertainmentAction class

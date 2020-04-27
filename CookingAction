@@ -1,68 +1,71 @@
+package finalProject;
+
 import java.util.*;
 
 public class CookingAction {
-	
+
 	// Scanner for user input
 	static Scanner in = new Scanner(System.in);
-	
+
 	// Action Variables
-	static int activityCooking = 1;	
+	static int activityCooking = 1;
 
 	// Player Variables
-	static int cookingExperiencePts = 0;
+	private static int cookingExperiencePts = 0;
 	static int playerCookingExpLevel = 1;
-	
+
 	// Array list to store all of the cooking options
 	static List<String> cookingOptions = new ArrayList<String>();
 
 	public static void main(String[] args) {
-		
-		while (activityCooking > 0) {
-
-			checkExpLevel(1, 1);
 			
-			activityCooking = 0;
-			break;
-		}
+			while (activityCooking > 0) {
+
+				checkExpLevel(1);
+				
+				activityCooking = 0;
+				break;
+			}
 	} // End main method
-	
-	// Method to check the player's cooking experience level and print their selection options
-	public static void checkExpLevel(int levelChecker, int playerCookingExpLevel) {
+
+	// Method to check the player's cooking experience level and print their
+	// selection options
+	public static void checkExpLevel(int levelChecker) {
 		
 		// Level 1 cooking actions/exp
-		String[] cookingLevel1 = {"Toast", "Cereal", "Fruit"};
-		
+		String[] cookingLevel1 = { "Toast", "Cereal", "Fruit" };
+
 		// Level 2 cooking actions/exp
-		String[] cookingLevel2 = {"Sandwich", "Grilled Cheese", "Salad"};
-		
+		String[] cookingLevel2 = { "Sandwich", "Grilled Cheese", "Salad" };
+
 		// Level 3 cooking actions/exp
-		String[] cookingLevel3 = {"Omelette", "Lasagna", "Pasta"};
-		
+		String[] cookingLevel3 = { "Omelette", "Lasagna", "Pasta" };
+
 		// Level 4 cooking actions/exp
-		String[] cookingLevel4 = {"BBQ", "Meatloaf", "Beef Vegetable Stew"};
-		
+		String[] cookingLevel4 = { "BBQ", "Meatloaf", "Beef Vegetable Stew" };
+
 		while (levelChecker > 0) {
-			if(playerCookingExpLevel == 1) {
-				
+			if (playerCookingExpLevel == 1) {
+
 				// Prompt the player to choose what to cook
 				System.out.println("\nChoose something to cook: ");
-				
+
 				// Make sure cookingOptions list is clear before adding any items
 				cookingOptions.clear();
-				
+
 				// Add cookingLevel1 array to cookingOptions
 				for (String options : cookingLevel1) {
 					cookingOptions.add(options);
 				}
-				
+
 				// Loop to list out the cookingLevel1 array
-				for(int i = 0; i < cookingOptions.size(); i ++) {
+				for (int i = 0; i < cookingOptions.size(); i++) {
 					System.out.println((i + 1) + ". " + cookingOptions.get(i));
 				}
-				
+
 				// Get the player's selection for input
 				int input = in.nextInt();
-				
+
 				// If the player chooses toast
 				if (input == cookingOptions.indexOf("Toast") + 1) {
 					cookToast();
@@ -72,25 +75,26 @@ public class CookingAction {
 				else if (input == cookingOptions.indexOf("Cereal") + 1) {
 					cookCereal();
 					levelChecker = 0;
+					// player cooks cereal get an addition 60 points and so on
+					cookingExperiencePts += 60;
 				}
 				// If the player chooses fruit
 				else if (input == cookingOptions.indexOf("Fruit") + 1) {
 					cookFruit();
 					levelChecker = 0;
-				}
-				else {
-					System.out.println("\n### Invalid Input! ###");
+					cookingExperiencePts += 40;
+				} else {
+					System.out.println("### Invalid Input! ###");
 					levelChecker = 1;
 				}
-			}
-			else if(playerCookingExpLevel == 2) {
-				
+			} else if (playerCookingExpLevel == 2) {
+
 				// Prompt the player to choose what to cook
 				System.out.println("\nChoose something to cook: ");
-				
+
 				// Make sure cookingOptions list is clear before adding any items
 				cookingOptions.clear();
-				
+
 				// Add cookingLevel2 array to cookingOptions
 				for (String options : cookingLevel1) {
 					cookingOptions.add(options);
@@ -99,15 +103,15 @@ public class CookingAction {
 				for (String options : cookingLevel2) {
 					cookingOptions.add(options);
 				}
-				
+
 				// Loop to list out the cookingLevel2 array
-				for(int i = 0; i < cookingOptions.size(); i ++) {
+				for (int i = 0; i < cookingOptions.size(); i++) {
 					System.out.println((i + 1) + ". " + cookingOptions.get(i));
 				}
-				
+
 				// Get the player's selection for input
 				int input = in.nextInt();
-				
+
 				// If the player chooses toast
 				if (input == cookingOptions.indexOf("Toast") + 1) {
 					cookToast();
@@ -137,20 +141,18 @@ public class CookingAction {
 				else if (input == cookingOptions.indexOf("Salad") + 1) {
 					cookSalad();
 					levelChecker = 0;
-				}
-				else {
-					System.out.println("\n### Invalid Input! ###");
+				} else {
+					System.out.println("### Invalid Input! ###");
 					levelChecker = 1;
 				}
-			}
-			else if(playerCookingExpLevel == 3) {
-				
+			} else if (playerCookingExpLevel == 3) {
+
 				// Prompt the player to choose what to cook
 				System.out.println("\nChoose something to cook: ");
-				
+
 				// Make sure cookingOptions list is clear before adding any items
 				cookingOptions.clear();
-				
+
 				// Add cookingLevel1 array to cookingOptions
 				for (String options : cookingLevel1) {
 					cookingOptions.add(options);
@@ -163,15 +165,15 @@ public class CookingAction {
 				for (String options : cookingLevel3) {
 					cookingOptions.add(options);
 				}
-				
+
 				// Loop to list out the cookingLevel3 array
-				for(int i = 0; i < cookingOptions.size(); i ++) {
+				for (int i = 0; i < cookingOptions.size(); i++) {
 					System.out.println((i + 1) + ". " + cookingOptions.get(i));
 				}
-				
+
 				// Get the player's selection for input
 				int input = in.nextInt();
-				
+
 				// If the player chooses toast
 				if (input == cookingOptions.indexOf("Toast") + 1) {
 					cookToast();
@@ -216,20 +218,18 @@ public class CookingAction {
 				else if (input == cookingOptions.indexOf("Pasta") + 1) {
 					cookPasta();
 					levelChecker = 0;
-				}
-				else {
-					System.out.println("\n### Invalid Input! ###");
+				} else {
+					System.out.println("### Invalid Input! ###");
 					levelChecker = 1;
 				}
-			}
-			else if(playerCookingExpLevel >= 4) {
-				
+			} else if (playerCookingExpLevel >= 4) {
+
 				// Prompt the player to choose what to cook
 				System.out.println("\nChoose something to cook: ");
-				
+
 				// Make sure cookingOptions list is clear before adding any items
 				cookingOptions.clear();
-				
+
 				// Add cookingLevel1 array to cookingOptions
 				for (String options : cookingLevel1) {
 					cookingOptions.add(options);
@@ -246,12 +246,12 @@ public class CookingAction {
 				for (String options : cookingLevel4) {
 					cookingOptions.add(options);
 				}
-				
+
 				// Loop to list out the cookingLevel4 array
-				for(int i = 0; i < cookingOptions.size(); i ++) {
+				for (int i = 0; i < cookingOptions.size(); i++) {
 					System.out.println((i + 1) + ". " + cookingOptions.get(i));
 				}
-				
+
 				// Get the player's selection for input
 				int input = in.nextInt();
 				// If the player chooses toast
@@ -313,199 +313,347 @@ public class CookingAction {
 				else if (input == cookingOptions.indexOf("Beef Vegetable Stew") + 1) {
 					cookBeefVegetableStew();
 					levelChecker = 0;
-				}
-				else {
-					System.out.println("\n### Invalid Input! ###");
+				} else {
+					System.out.println("### Invalid Input! ###");
 					levelChecker = 1;
 				}
-			}
-			else {
-				System.out.println("\n### Invalid Input! ###");
+			} else {
+				System.out.println("### Invalid Input! ###");
 				levelChecker = 1;
 			}
 		}
 	} // End method checkExpLevel
 	
+	// Method to track Experience Points
+	public static int addCookingExp () {
+		
+		System.out.println("\nCurrent cookingExperiencePts: " + cookingExperiencePts);
+		
+		return cookingExperiencePts;
+
+	} // End addCookingExp method
+	
+	// Method for leveling up skills
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	} // End expLevelUp method
+
+
 	// Method to make toast
 	private static String cookToast() {
-		
+
 		Random randomResponse = new Random();
-		
-		String[] toastMessage = {"\nYou toasted some toast to golden brown perfection! You are very satisfied.\n",
-		"\nYour toast was mediocre. You are not very satisfied.\n",
-		"\nYou burnt your toast. You decide to throw it away. You are still hungry.\n"};
-		
-		String selectedMessage = toastMessage[randomResponse.nextInt(toastMessage.length)];
-		
+
+		String[] toastMessage = { "You toasted some toast to golden brown perfection! You are very satisfied.",
+				"Your toast was mediocre. You are not very satisfied.",
+				"You burnt your toast. You decide to throw it away. You are still hungry." };
+
+		int randomValue = randomResponse.nextInt(toastMessage.length);
+
+		String selectedMessage = toastMessage[randomValue];
+
 		System.out.println(selectedMessage);
-		
+
+		// once a player has cooking toast experience we increase their
+		// points by 40. += means increment the value, same as
+		// cookingExperiencePts = cookingExperiencePts + 40;
+		// just a short cut.
+		if (randomValue == 0) {
+			cookingExperiencePts += 40;
+		} else if (randomValue == 1) {
+			cookingExperiencePts += 20;
+		} else {
+			cookingExperiencePts -= 0;
+		}
+
 		return selectedMessage;
-		
+
 	} // End method cookToast
 
 	// Method to make cereal
-	private static String cookCereal () {
+	private static String cookCereal() {
 		Random randomResponse = new Random();
-		
-		String[] cerealMessage = {"\nYour cereal had a perfect balance of cereal and milk! You are very satisfied.\n",
-				"\nYour cereal choice was slightly boring. You are not very satisfied.\n",
-				"\nThe milk for your cereal was expired. You decide to throw it away. You are still hungry.\n"};
-		
-		String selectedMessage = cerealMessage[randomResponse.nextInt(cerealMessage.length)];
-		
+
+		String[] cerealMessage = { "Your cereal had a perfect balance of cereal and milk! You are very satisfied.",
+				"Your cereal choice was slightly boring. You are not very satisfied.",
+				"The milk for your cereal was expired. You decide to throw it away. You are still hungry." };
+
+		int randomValue = randomResponse.nextInt(cerealMessage.length);
+
+		String selectedMessage = cerealMessage[randomValue];
+
 		System.out.println(selectedMessage);
-		
+
+		if (randomValue == 0) {
+			cookingExperiencePts += 40;
+		} else if (randomValue == 1) {
+			cookingExperiencePts += 20;
+		} else {
+			cookingExperiencePts -= 0;
+		}
+
 		return selectedMessage;
 	} // End method cookCereal
-	
+
 	// Method to prepare fruit
-	private static String cookFruit () {
+	private static String cookFruit() {
 		Random randomResponse = new Random();
-		
-		String[] fruitMessage = {"\nYou cut up your fruit in perfect bite size shapes. You are very satisfied.\n",
-				"\nYou only had boring fruit to eat. You are not very satisfied.\n",
-				"\nThe fruit didn't taste good. You decide to throw the rest of it away. You are still hungry.\n"};
-			
-		String selectedMessage = fruitMessage[randomResponse.nextInt(fruitMessage.length)];
-			
+
+		String[] fruitMessage = { "You cut up your fruit in perfect bite size shapes. You are very satisfied.",
+				"You only had boring fruit to eat. You are not very satisfied.",
+				"The fruit didn't taste good. You decide to throw the rest of it away. You are still hungry." };
+
+		int randomValue = randomResponse.nextInt(fruitMessage.length);
+
+		String selectedMessage = fruitMessage[randomValue];
+
 		System.out.println(selectedMessage);
-			
+
+		if (randomValue == 0) {
+			cookingExperiencePts += 40;
+		} else if (randomValue == 1) {
+			cookingExperiencePts += 20;
+		} else {
+			cookingExperiencePts -= 0;
+		}
+
 		return selectedMessage;
 	} // End method cookFruit
-	
+
 	// Method to make a sandwich
-	private static String cookSandwich () {
+	private static String cookSandwich() {
 		Random randomResponse = new Random();
-		
-		String[] sandwichMessage = {"\nYou made a sandwich stacked with all of the tastiest ingredients. You are very satisfied.\n",
-				"\nYour sandwich was not made with much love. You are not very satisfied.\n",
-				"\nYou only had half of the ingredients to make your sandwich so it wasn't very good. You are still hungry.\n"};
-			
-		String selectedMessage = sandwichMessage[randomResponse.nextInt(sandwichMessage.length)];
-			
+
+		String[] sandwichMessage = {
+				"You made a sandwich stacked with all of the tastiest ingredients. You are very satisfied.",
+				"Your sandwich was not made with much love. You are not very satisfied.",
+				"You only had half of the ingredients to make your sandwich so it wasn't very good. You are still hungry." };
+
+		int randomValue = randomResponse.nextInt(sandwichMessage.length);
+
+		String selectedMessage = sandwichMessage[randomValue];
+
 		System.out.println(selectedMessage);
-			
+
+		if (randomValue == 0) {
+			cookingExperiencePts += 80;
+		} else if (randomValue == 1) {
+			cookingExperiencePts += 40;
+		} else {
+			cookingExperiencePts += 10;
+		}
+
 		return selectedMessage;
 	} // End method cookSandwich
-	
+
 	// Method to cook grilled cheese
-	private static String cookGrilledCheese () {
+	private static String cookGrilledCheese() {
 		Random randomResponse = new Random();
-		
-		String[] grilledcheeseMessage = {"\nYour cheese was perfectly melty and your bread was beautifully toasted. You are very satisfied.\n",
-				"\nYour cheese wasn't melted all the way. You are not very satisfied.\n",
-				"\nYou burnt your grilled cheese. You decide to throw it away. You are still hungry.\n"};
-			
-		String selectedMessage = grilledcheeseMessage[randomResponse.nextInt(grilledcheeseMessage.length)];
-			
+		String[] grilledcheeseMessage = {
+				"Your cheese was perfectly melty and your bread was beautifully toasted. You are very satisfied.",
+				"Your cheese wasn't melted all the way. You are not very satisfied.",
+				"You burnt your grilled cheese. You decide to throw it away. You are still hungry." };
+
+		int randomValue = randomResponse.nextInt(grilledcheeseMessage.length);
+
+		String selectedMessage = grilledcheeseMessage[randomValue];
+
 		System.out.println(selectedMessage);
-			
+
+		if (randomValue == 0) {
+			cookingExperiencePts += 80;
+		} else if (randomValue == 1) {
+			cookingExperiencePts += 30;
+		} else {
+			cookingExperiencePts -= 0;
+		}
+
 		return selectedMessage;
 	} // End method cookGrilledCheese
-	
+
 	// Method to prepare salad
-	private static String cookSalad () {
+	private static String cookSalad() {
 		Random randomResponse = new Random();
-		
-		String[] saladMessage = {"\nYour salad was very fresh and looked amazing. You are very satisfied.\n",
-				"\nYour favorite dressing was gone so you had to use the boring kind. You are not very satisfied.\n",
-				"\nYour lettuce was all wilty and not very green. You deicde to throw it away. You are still hungry.\n"};
-			
-		String selectedMessage = saladMessage[randomResponse.nextInt(saladMessage.length)];
-			
+
+		String[] saladMessage = { "Your salad was very fresh and looked amazing. You are very satisfied.",
+				"Your favorite dressing was gone so you had to use the boring kind. You are not very satisfied.",
+				"Your lettuce was all wilty and not very green. You deicde to throw it away. You are still hungry." };
+
+		int randomValue = randomResponse.nextInt(saladMessage.length);
+
+		String selectedMessage = saladMessage[randomValue];
+
 		System.out.println(selectedMessage);
-			
+
+		if (randomValue == 0) {
+			cookingExperiencePts += 80;
+		} else if (randomValue == 1) {
+			cookingExperiencePts += 40;
+		} else {
+			cookingExperiencePts += 0;
+		}
+
 		return selectedMessage;
 	} // End method cookSalad
-	
+
 	// Method to cook an omelette
-		private static String cookOmelette () {
-			Random randomResponse = new Random();
-			
-			String[] omeletteMessage = {"\nYou cooked your omelette perfectly. You are very satisfied.\n",
-					"\nYou had limited ingredients to cook your omelette. You are not very satisfied.\n",
-					"\nYou overcooked your omelette. It wasn't very tasty. You are still hungry.\n"};
-				
-			String selectedMessage = omeletteMessage[randomResponse.nextInt(omeletteMessage.length)];
-				
-			System.out.println(selectedMessage);
-				
-			return selectedMessage;
-		} // End method cookOmelette
-		
-		// Method to cook lasagna
-		private static String cookLasagna () {
-			Random randomResponse = new Random();
-			
-			String[] lasagnaMessage = {"\nYou take a beautiful lasagna out of the oven and cut into it. You are very satisfied.\n",
-					"\nYour lasagna was very messy and difficult to eat. You are not very satisfied.\n",
-					"\nYour lasagna was undercooked and it made you upset.\n"};
-				
-			String selectedMessage = lasagnaMessage[randomResponse.nextInt(lasagnaMessage.length)];
-				
-			System.out.println(selectedMessage);
-				
-			return selectedMessage;
-		} // End method cookLasagna
-		
-		// Method to cook pasta
-		private static String cookPasta () {
-			Random randomResponse = new Random();
-			
-			String[] pastaMessage = {"\nYou cooked a pasta dish comparable to a top Italian restaurant. You are very satisfied.\n",
-					"\nYou wanted bow tie pasta instead of spaghetti. You are not very satisfied.\n",
-					"\nYou didn't have any sauce to put on your pasta. It was not satisfying.\n"};
-				
-			String selectedMessage = pastaMessage[randomResponse.nextInt(pastaMessage.length)];
-				
-			System.out.println(selectedMessage);
-				
-			return selectedMessage;
-		} // End method cookPasta
-		
-		// Method to cook BBQ
-		private static String cookBBQ () {
-			Random randomResponse = new Random();
-			
-			String[] bbqMessage = {"\nYou decide you could win a grillmaster competition after that. You are very satisfied.\n",
-					"\nYou undercook your food on the BBQ. You are not very satisfied.\n",
-					"\nYou completely burned your food on the BBQ. You deicde to throw it away. You are still hungry.\n"};
-				
-			String selectedMessage = bbqMessage[randomResponse.nextInt(bbqMessage.length)];
-				
-			System.out.println(selectedMessage);
-				
-			return selectedMessage;
-		} // End method cookBBQ
-		
-		// Method to cook meatloaf
-		private static String cookMeatloaf () {
-			Random randomResponse = new Random();
-			
-			String[] meatloafMessage = {"\nThe meatloaf was just like your mom used to make it. You are very satisfied.\n",
-					"\nThe meatloaf was slightly dry. You are not very satisfied.\n",
-					"\nYour meatloaf shriveled into a small insignificant loaf that is hardly edible. You deicde to throw it away. You are still hungry.\n"};
-				
-			String selectedMessage = meatloafMessage[randomResponse.nextInt(meatloafMessage.length)];
-				
-			System.out.println(selectedMessage);
-				
-			return selectedMessage;
-		} // End method cookMeatloaf
-		
-		// Method to cook beef vegetable stew
-		private static String cookBeefVegetableStew () {
-			Random randomResponse = new Random();
-			
-			String[] beefvegetablestewMessage = {"\nYour stew took all day, but it was amazing. You are very satisfied.\n",
-					"\nYour stew was a little bland. You are not very satisfied.\n",
-					"\nYour stew was taking way too long and you didn't want to wait for it. You are still hungry, but you have to wait.\n"};
-				
-			String selectedMessage = beefvegetablestewMessage[randomResponse.nextInt(beefvegetablestewMessage.length)];
-				
-			System.out.println(selectedMessage);
-				
-			return selectedMessage;
-		} // End method cookBeefVegetableStew
-		
-} // End CookingAction class
+	private static String cookOmelette() {
+		Random randomResponse = new Random();
+
+		String[] omeletteMessage = { "You cooked your omelette perfectly. You are very satisfied.",
+				"You had limited ingredients to cook your omelette. You are not very satisfied.",
+				"You overcooked your omelette. It wasn't very tasty. You are still hungry." };
+
+		int randomValue = randomResponse.nextInt(omeletteMessage.length);
+
+		String selectedMessage = omeletteMessage[randomValue];
+
+		System.out.println(selectedMessage);
+
+		if (randomValue == 0) {
+			cookingExperiencePts += 100;
+		} else if (randomValue == 1) {
+			cookingExperiencePts += 50;
+		} else {
+			cookingExperiencePts += 15;
+		}
+		return selectedMessage;
+	} // End method cookOmelette
+
+	// Method to cook lasagna
+	private static String cookLasagna() {
+		Random randomResponse = new Random();
+
+		String[] lasagnaMessage = {
+				"You take a beautiful lasagna out of the oven and cut into it. You are very satisfied.",
+				"Your lasagna was very messy and difficult to eat. You are not very satisfied.",
+				"Your lasagna was undercooked and it made you upset." };
+
+		int randomValue = randomResponse.nextInt(lasagnaMessage.length);
+
+		String selectedMessage = lasagnaMessage[randomValue];
+
+		System.out.println(selectedMessage);
+
+		if (randomValue == 0) {
+			cookingExperiencePts += 100;
+		} else if (randomValue == 1) {
+			cookingExperiencePts += 50;
+		} else {
+			cookingExperiencePts += 15;
+		}
+		return selectedMessage;
+	} // End method cookLasagna
+
+	// Method to cook pasta
+	private static String cookPasta() {
+		Random randomResponse = new Random();
+
+		String[] pastaMessage = {
+				"You cooked a pasta dish comparable to a top Italian restaurant. You are very satisfied.",
+				"You wanted bow tie pasta instead of spaghetti. You are not very satisfied.",
+				"You didn't have any sauce to put on your pasta. It was not satisfying." };
+
+		int randomValue = randomResponse.nextInt(pastaMessage.length);
+
+		String selectedMessage = pastaMessage[randomValue];
+
+		System.out.println(selectedMessage);
+
+		if (randomValue == 0) {
+			cookingExperiencePts += 100;
+		} else if (randomValue == 1) {
+			cookingExperiencePts += 50;
+		} else {
+			cookingExperiencePts += 15;
+		}
+
+		return selectedMessage;
+	} // End method cookPasta
+
+	// Method to cook BBQ
+	private static String cookBBQ() {
+		Random randomResponse = new Random();
+
+		String[] bbqMessage = {
+				"You decide you could win a grillmaster competition after that. You are very satisfied.",
+				"You undercook your food on the BBQ. You are not very satisfied.",
+				"You completely burned your food on the BBQ. You deicde to throw it away. You are still hungry." };
+
+		int randomValue = randomResponse.nextInt(bbqMessage.length);
+
+		String selectedMessage = bbqMessage[randomValue];
+
+		System.out.println(selectedMessage);
+
+		if (randomValue == 0) {
+			cookingExperiencePts += 150;
+		} else if (randomValue == 1) {
+			cookingExperiencePts += 80;
+		} else {
+			cookingExperiencePts += 40;
+		}
+
+		return selectedMessage;
+	} // End method cookBBQ
+
+	// Method to cook meatloaf
+	private static String cookMeatloaf() {
+		Random randomResponse = new Random();
+
+		String[] meatloafMessage = { "The meatloaf was just like your mom used to make it. You are very satisfied.",
+				"The meatloaf was slightly dry. You are not very satisfied.",
+				"Your meatloaf shriveled into a small insignificant loaf that is hardly edible. You deicde to throw it away. You are still hungry." };
+
+		int randomValue = randomResponse.nextInt(meatloafMessage.length);
+
+		String selectedMessage = meatloafMessage[randomValue];
+
+		System.out.println(selectedMessage);
+
+		if (randomValue == 0) {
+			cookingExperiencePts += 150;
+		} else if (randomValue == 1) {
+			cookingExperiencePts += 80;
+		} else {
+			cookingExperiencePts += 20;
+		}
+		return selectedMessage;
+	} // End method cookMeatloaf
+
+	// Method to cook beef vegetable stew
+	private static String cookBeefVegetableStew() {
+		Random randomResponse = new Random();
+
+		String[] beefvegetablestewMessage = { "Your stew took all day, but it was amazing. You are very satisfied.",
+				"Your stew was a little bland. You are not very satisfied.",
+				"Your stew was taking way too long and you didn't want to wait for it. You are still hungry, but you have to wait." };
+
+		int randomValue = randomResponse.nextInt(beefvegetablestewMessage.length);
+
+		String selectedMessage = beefvegetablestewMessage[randomValue];
+
+		System.out.println(selectedMessage);
+
+		if (randomValue == 0) {
+			cookingExperiencePts += 150;
+		} else if (randomValue == 1) {
+			cookingExperiencePts += 80;
+		} else {
+			cookingExperiencePts += 50;
+		}
+		return selectedMessage;
+	} // End method cookBeefVegetableStew
+
+} // End CookingAction class 

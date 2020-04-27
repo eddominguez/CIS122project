@@ -334,19 +334,32 @@ public class CookingAction {
 	} // End addCookingExp method
 	
 	// Method for leveling up skills
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public static void cookingLevelUp () {
+		
+		int experiencePoints = exerciseExperiencePts;
+		
+		int[] currentLevel = { 1, 2, 3, 4};
+		int[] requiredXP = { 100, 200, 300, 400};
+		
+   		if (experiencePoints >= requiredXP[0] && experiencePoints < requiredXP[1]) {
+   			playerExerciseExpLevel = currentLevel[1];
+   			System.out.println("\nYour current level is " + playerExerciseExpLevel + "\n");
+   		}
+   		else if (experiencePoints == requiredXP[1] && experiencePoints < requiredXP[2]) {
+   			playerExerciseExpLevel = currentLevel[2];
+   			System.out.println("\nYour current level is " + playerExerciseExpLevel + "\n");
+   		}
+    	else if (experiencePoints == requiredXP[2] && experiencePoints < requiredXP[3]) {
+    		playerExerciseExpLevel = currentLevel[3];
+    		System.out.println("\nYour current level is " + playerExerciseExpLevel + "\n");
+    	}
+    	else if (experiencePoints == requiredXP[3] && experiencePoints < requiredXP[4]) {
+    		playerExerciseExpLevel = currentLevel[4];
+    		System.out.println("\nYour current level is " + playerExerciseExpLevel + "\n");
+    	}
+    	else {
+    		System.out.println("\nYour current level is " + playerExerciseExpLevel + "\n");
+    	}
 	} // End expLevelUp method
 
 

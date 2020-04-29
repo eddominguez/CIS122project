@@ -1,3 +1,4 @@
+//Run the server first, then the client
 import java.io.*;
 import java.net.*;
 import java.net.ServerSocket;
